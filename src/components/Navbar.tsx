@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { PORTFOLIO_CONFIG } from '../data/portfolioData';
 import { ArrowUpRight, Menu, X, Sun, Moon, Mail, Copy, Check } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [copied, setCopied] = useState(false);
+  const lastScrollY = useRef(0);
   
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
     if (typeof window !== 'undefined') {
@@ -20,10 +22,28 @@ export const Navbar: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 30);
+      const currentScrollY = window.scrollY;
+
+      // Stylistic backdrop blur when not at immediate top
+      setIsScrolled(currentScrollY > 30);
+
+      // Scroll behavior: hide when scrolling down, show when scrolling up or at top
+      if (currentScrollY <= 40) {
+        setIsVisible(true);
+      } else {
+        if (currentScrollY > lastScrollY.current + 8) {
+          // Scrolling down -> hide header
+          setIsVisible(false);
+        } else if (currentScrollY < lastScrollY.current - 8) {
+          // Scrolling up -> show header
+          setIsVisible(true);
+        }
+      }
+
+      lastScrollY.current = currentScrollY;
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -53,7 +73,11 @@ export const Navbar: React.FC = () => {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
+          isVisible || mobileMenuOpen
+            ? 'translate-y-0 opacity-100 pointer-events-auto'
+            : '-translate-y-full opacity-0 pointer-events-none'
+        } ${
           isScrolled ? 'pt-2.5 sm:pt-3' : 'pt-4 sm:pt-6'
         }`}
       >
