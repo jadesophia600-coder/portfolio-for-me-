@@ -1,0 +1,108 @@
+import React, { useState } from 'react';
+import { PORTFOLIO_CONFIG, Project } from '../data/portfolioData';
+import { ArrowUpRight, Sparkles, Filter, Check } from 'lucide-react';
+import { LiveMockupPreview } from './LiveMockupPreview';
+
+interface ProjectGalleryProps {
+  onOpenCaseStudy: (project: Project) => void;
+}
+
+export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ onOpenCaseStudy }) => {
+  const [selectedCategory, setSelectedCategory] = useState<string>('All Archive');
+
+  const { galleryProjects } = PORTFOLIO_CONFIG;
+
+  const filteredProjects = selectedCategory === 'All Archive'
+    ? galleryProjects
+    : galleryProjects.filter(p => p.category === selectedCategory);
+
+  return (
+    <section className="py-20 sm:py-28 bg-[#F3EFE9]/60 dark:bg-[#0D0F16] border-y border-[#E6E1D6] dark:border-[#222533] relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Gallery Header & Description */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8">
+          <div>
+            <div className="text-xs font-mono text-[#1447E6] dark:text-[#60A5FA] uppercase tracking-wider mb-2 font-semibold">
+              [ 02 // EXPERIMENTAL INDEX &amp; ARCHIVE ]
+            </div>
+            <h2 className="text-3xl sm:text-5xl font-display font-extrabold tracking-tight text-[#111215] dark:text-[#FAF8F5]">
+              SPECIALIZED PLATFORMS &amp; LABS.
+            </h2>
+          </div>
+          <p className="text-sm sm:text-base text-[#58554E] dark:text-[#9DA2B3] max-w-sm font-normal">
+            Bespoke builds across translucent AI glass interfaces, local business headquarters, high-velocity acquisition funnels, and kinetic creative studios.
+          </p>
+        </div>
+
+        {/* Category Filter Bar */}
+        <div className="mt-8 flex flex-wrap items-center gap-2 pb-8 border-b border-[#E6E1D6] dark:border-[#222533]">
+          {PORTFOLIO_CONFIG.categories.map(category => (
+            <button
+              key={category}
+              onClick={() => setSelectedCategory(category)}
+              className={`px-4 py-2 rounded-full text-xs font-mono transition-all duration-200 ${
+                selectedCategory === category
+                  ? 'bg-[#111215] dark:bg-white text-[#FAF8F5] dark:text-[#090A0E] font-semibold shadow-xs'
+                  : 'bg-white dark:bg-[#161824] text-[#58554E] dark:text-[#9DA2B3] border border-[#E6E1D6] dark:border-[#2D3142] hover:border-[#111215] dark:hover:border-white hover:text-[#111215] dark:hover:text-white'
+              }`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
+        {/* Asymmetrical Experimental Grid - Unique Images #5, #6, #7, #8 */}
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-12 gap-8">
+          {filteredProjects.map((project, index) => {
+            const colSpan = index % 2 === 0 ? 'md:col-span-7' : 'md:col-span-5';
+
+            return (
+              <div
+                key={project.id}
+                onClick={() => onOpenCaseStudy(project)}
+                className={`${colSpan} group cursor-pointer flex flex-col justify-between p-6 sm:p-8 rounded-2xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] hover:border-[#1447E6]/50 dark:hover:border-[#3B82F6]/50 shadow-editorial hover:shadow-hover-pop transition-all duration-300 relative overflow-hidden`}
+              >
+                {/* Project Header Info */}
+                <div>
+                  <div className="flex items-center justify-between text-xs font-mono text-[#8A867E] dark:text-[#787D8E] mb-3">
+                    <span className="font-bold text-[#1447E6] dark:text-[#60A5FA]">[ 0{index + 4} ]</span>
+                    <span className="px-2 py-0.5 rounded bg-[#FAF8F5] dark:bg-[#1A1D2B] border border-[#E6E1D6] dark:border-[#2D3142] text-[#111215] dark:text-[#FAF8F5] uppercase tracking-wider text-[10px]">
+                      {project.category}
+                    </span>
+                    <span>{project.year}</span>
+                  </div>
+
+                  <h3 className="text-xl sm:text-2xl font-sans font-bold text-[#111215] dark:text-[#FAF8F5] group-hover:text-[#1447E6] dark:group-hover:text-[#60A5FA] transition-colors leading-tight">
+                    {project.title}
+                  </h3>
+
+                  <p className="mt-2 text-sm text-[#58554E] dark:text-[#9DA2B3] line-clamp-2">
+                    {project.tagline}
+                  </p>
+                </div>
+
+                {/* Embedded Responsive Browser Preview Box */}
+                <div className="mt-6 rounded-xl overflow-hidden border border-[#E6E1D6] dark:border-[#2D3142] bg-[#111215] shadow-inner h-56 sm:h-72">
+                  <LiveMockupPreview project={project} />
+                </div>
+
+                {/* Footer Metadata & CTA */}
+                <div className="mt-6 pt-4 border-t border-[#E6E1D6] dark:border-[#222533] flex items-center justify-between text-xs font-mono">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[#8A867E] dark:text-[#787D8E]">Role:</span>
+                    <span className="text-[#111215] dark:text-[#FAF8F5] font-medium">{project.role}</span>
+                  </div>
+
+                  <span className="text-[#1447E6] dark:text-[#60A5FA] font-semibold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                    <span>Inspect</span>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </span>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+};
