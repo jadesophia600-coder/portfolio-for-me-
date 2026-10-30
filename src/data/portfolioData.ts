@@ -89,12 +89,12 @@ export const PORTFOLIO_CONFIG = {
       "I bridge the gap between design and engineering. Instead of treating aesthetics and code as two separate steps, I focus on shipping polished interfaces backed by clean, maintainable architecture.",
       "Whether developing interactive dashboards, e-commerce storefronts, or high-converting product pages, I take a disciplined approach to code architecture, responsive design, and accessible interfaces."
     ],
-    email: "ogunsanyavictor33@gmail.com",
+    email: "victorjackson6545@gmail.com",
     socials: [
       { name: "GitHub", url: "https://github.com/jadesophia600-coder", handle: "github.com/jadesophia600-coder" },
       { name: "LinkedIn", url: "https://linkedin.com/in/victor-ogunsanya", handle: "linkedin.com/in/victor-ogunsanya" },
       { name: "Twitter / X", url: "https://x.com", handle: "@victor_webdev" },
-      { name: "Email", url: "mailto:ogunsanyavictor33@gmail.com", handle: "ogunsanyavictor33@gmail.com" },
+      { name: "Email", url: "mailto:victorjackson6545@gmail.com", handle: "victorjackson6545@gmail.com" },
     ],
   },
   
