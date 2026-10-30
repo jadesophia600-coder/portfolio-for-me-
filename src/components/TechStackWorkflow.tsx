@@ -20,7 +20,7 @@ export const TechStackWorkflow: React.FC = () => {
   };
 
   return (
-    <section id="workflow" className="py-24 sm:py-32 bg-[#FAF8F5] dark:bg-[#090A0E] relative border-t border-[#E6E1D6] dark:border-[#222533]">
+    <section id="workflow" className="py-20 sm:py-28 lg:py-32 bg-[#FAF8F5] dark:bg-[#090A0E] relative border-t border-[#E6E1D6] dark:border-[#222533] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Part A: Technologies Matrix */}
         <motion.div
@@ -28,13 +28,13 @@ export const TechStackWorkflow: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-[#E6E1D6] dark:border-[#222533]"
+          className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 pb-8 sm:pb-12 border-b border-[#E6E1D6] dark:border-[#222533]"
         >
           <div>
             <div className="text-xs font-mono text-[#1447E6] dark:text-[#60A5FA] uppercase tracking-wider mb-2 font-semibold">
               <span>TOOLBOX</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-sans font-extrabold tracking-tight text-[#111215] dark:text-[#FAF8F5]">
+            <h2 className="text-3xl sm:text-5xl font-serif font-bold tracking-tight text-[#111215] dark:text-[#FAF8F5]">
               Technologies &amp; Tools.
             </h2>
           </div>
@@ -43,8 +43,8 @@ export const TechStackWorkflow: React.FC = () => {
           </p>
         </motion.div>
 
-        {/* 4-Column Tech Stack Categories */}
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* 4-Column Tech Stack Categories - Responsive on mobile */}
+        <div className="mt-8 sm:mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {techStack.map((cat, idx) => (
             <motion.div
               key={idx}
@@ -52,23 +52,23 @@ export const TechStackWorkflow: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.5, delay: idx * 0.08, ease: [0.16, 1, 0.3, 1] }}
-              whileHover={{ y: -6, transition: { duration: 0.25 } }}
-              className="p-6 rounded-2xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] shadow-xs flex flex-col justify-between hover:border-[#1447E6]/40 dark:hover:border-[#3B82F6]/40 transition-colors"
+              whileHover={{ y: -5, transition: { duration: 0.25 } }}
+              className="p-5 sm:p-6 rounded-2xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] shadow-xs flex flex-col justify-between hover:border-[#1447E6]/40 dark:hover:border-[#3B82F6]/40 transition-colors"
             >
               <div>
                 <div className="flex items-center gap-2 mb-2">
                   {getCategoryIcon(cat.category)}
-                  <h3 className="font-sans font-bold text-base text-[#111215] dark:text-[#FAF8F5]">
+                  <h3 className="font-serif font-bold text-base sm:text-lg text-[#111215] dark:text-[#FAF8F5]">
                     {cat.category}
                   </h3>
                 </div>
-                <p className="text-xs text-[#58554E] dark:text-[#9DA2B3] font-mono mb-5">
+                <p className="text-xs text-[#58554E] dark:text-[#9DA2B3] font-mono mb-4 sm:mb-5">
                   {cat.description}
                 </p>
 
-                <div className="space-y-3.5">
+                <div className="space-y-3">
                   {cat.items.map((item, itemIdx) => (
-                    <div key={itemIdx} className="border-b border-[#E6E1D6]/60 dark:border-[#222533] pb-3 last:border-none">
+                    <div key={itemIdx} className="border-b border-[#E6E1D6]/60 dark:border-[#222533] pb-2.5 sm:pb-3 last:border-none">
                       <div className="flex items-center justify-between text-xs font-mono">
                         <span className="font-semibold text-[#111215] dark:text-[#FAF8F5]">{item.name}</span>
                         <span className="text-[10px] px-1.5 py-0.5 rounded bg-[#F3EFE9] dark:bg-[#1C1F2E] text-[#58554E] dark:text-[#9DA2B3]">
@@ -87,19 +87,19 @@ export const TechStackWorkflow: React.FC = () => {
         </div>
 
         {/* Part B: Workflow Process */}
-        <div className="mt-24 pt-16 border-t border-[#E6E1D6] dark:border-[#222533]">
+        <div className="mt-16 sm:mt-24 pt-12 sm:pt-16 border-t border-[#E6E1D6] dark:border-[#222533]">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12"
+            className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 pb-8 sm:pb-12"
           >
             <div>
               <div className="text-xs font-mono text-[#1447E6] dark:text-[#60A5FA] uppercase tracking-wider mb-2 font-semibold">
                 <span>HOW I WORK</span>
               </div>
-              <h3 className="text-2xl sm:text-4xl font-sans font-extrabold tracking-tight text-[#111215] dark:text-[#FAF8F5]">
+              <h3 className="text-2xl sm:text-4xl font-serif font-bold tracking-tight text-[#111215] dark:text-[#FAF8F5]">
                 From concept to production.
               </h3>
             </div>
@@ -108,7 +108,7 @@ export const TechStackWorkflow: React.FC = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {workflow.map((step, idx) => (
               <motion.div
                 key={idx}
@@ -116,27 +116,27 @@ export const TechStackWorkflow: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.5, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                whileHover={{ y: -6, transition: { duration: 0.25 } }}
-                className="p-6 rounded-2xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] shadow-xs flex flex-col justify-between hover:border-[#1447E6]/40 dark:hover:border-[#3B82F6]/40 transition-colors"
+                whileHover={{ y: -5, transition: { duration: 0.25 } }}
+                className="p-5 sm:p-6 rounded-2xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] shadow-xs flex flex-col justify-between hover:border-[#1447E6]/40 dark:hover:border-[#3B82F6]/40 transition-colors"
               >
                 <div>
-                  <div className="flex items-center justify-between font-mono text-xs mb-4">
+                  <div className="flex items-center justify-between font-mono text-xs mb-3 sm:mb-4">
                     <span className="font-bold text-[#1447E6] dark:text-[#60A5FA] text-base">{step.step}</span>
                     <span className="text-[#8A867E] dark:text-[#787D8E] px-2 py-0.5 rounded bg-[#F3EFE9] dark:bg-[#181B27]">
                       {step.duration}
                     </span>
                   </div>
 
-                  <h4 className="font-sans font-bold text-base sm:text-lg text-[#111215] dark:text-[#FAF8F5] mb-2">
+                  <h4 className="font-serif font-bold text-base sm:text-lg text-[#111215] dark:text-[#FAF8F5] mb-2">
                     {step.title}
                   </h4>
 
-                  <p className="text-xs sm:text-sm text-[#58554E] dark:text-[#9DA2B3] leading-relaxed mb-6">
+                  <p className="text-xs sm:text-sm text-[#58554E] dark:text-[#9DA2B3] leading-relaxed mb-5 sm:mb-6">
                     {step.summary}
                   </p>
                 </div>
 
-                <div className="border-t border-[#E6E1D6]/60 dark:border-[#222533] pt-4 space-y-2">
+                <div className="border-t border-[#E6E1D6]/60 dark:border-[#222533] pt-3.5 sm:pt-4 space-y-2">
                   <div className="text-[10px] font-mono uppercase text-[#8A867E] dark:text-[#787D8E] font-semibold">
                     Key Outcomes
                   </div>

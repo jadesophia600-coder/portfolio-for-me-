@@ -24,7 +24,7 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF8F5] dark:bg-[#090A0E] text-[#111215] dark:text-[#FAF8F5] flex flex-col relative selection:bg-[#1447E6] selection:text-white transition-colors duration-300">
+    <div className="min-h-screen w-full overflow-x-hidden bg-[#FAF8F5] dark:bg-[#090A0E] text-[#111215] dark:text-[#FAF8F5] flex flex-col relative selection:bg-[#1447E6] selection:text-white transition-colors duration-300">
       {/* Floating Top Navigation */}
       <Navbar />
 

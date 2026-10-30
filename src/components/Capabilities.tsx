@@ -8,7 +8,7 @@ export const Capabilities: React.FC = () => {
   const [activeCapabilityId, setActiveCapabilityId] = useState<string>(capabilities[0].id);
 
   return (
-    <section id="capabilities" className="py-24 sm:py-32 relative">
+    <section id="capabilities" className="py-20 sm:py-28 lg:py-32 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -16,13 +16,13 @@ export const Capabilities: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-[#E6E1D6] dark:border-[#222533]"
+          className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 pb-8 sm:pb-12 border-b border-[#E6E1D6] dark:border-[#222533]"
         >
           <div>
             <div className="text-xs font-mono text-[#1447E6] dark:text-[#60A5FA] uppercase tracking-wider mb-2 font-semibold">
               <span>SERVICES &amp; EXPERTISE</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-sans font-extrabold tracking-tight text-[#111215] dark:text-[#FAF8F5]">
+            <h2 className="text-3xl sm:text-5xl font-serif font-bold tracking-tight text-[#111215] dark:text-[#FAF8F5]">
               What I Do.
             </h2>
           </div>
@@ -32,7 +32,7 @@ export const Capabilities: React.FC = () => {
         </motion.div>
 
         {/* Accordion List */}
-        <div className="mt-12 divide-y divide-[#E6E1D6] dark:divide-[#222533]">
+        <div className="mt-8 sm:mt-12 divide-y divide-[#E6E1D6] dark:divide-[#222533]">
           {capabilities.map((cap, index) => {
             const isOpen = activeCapabilityId === cap.id;
 
@@ -43,18 +43,18 @@ export const Capabilities: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.5, delay: index * 0.05, ease: [0.16, 1, 0.3, 1] }}
-                className="py-8 group transition-colors"
+                className="py-6 sm:py-8 group transition-colors"
               >
                 <div
                   onClick={() => setActiveCapabilityId(isOpen ? '' : cap.id)}
-                  className="flex flex-col md:flex-row md:items-center justify-between gap-4 cursor-pointer select-none"
+                  className="flex items-start justify-between gap-4 cursor-pointer select-none"
                 >
-                  <div className="flex items-start md:items-center gap-6 sm:gap-10">
-                    <span className="font-mono text-sm sm:text-base font-bold text-[#8A867E] dark:text-[#787D8E] group-hover:text-[#1447E6] dark:group-hover:text-[#60A5FA] transition-colors">
+                  <div className="flex items-start gap-4 sm:gap-8">
+                    <span className="font-mono text-sm sm:text-base font-bold text-[#8A867E] dark:text-[#787D8E] group-hover:text-[#1447E6] dark:group-hover:text-[#60A5FA] transition-colors pt-0.5">
                       {cap.number}
                     </span>
                     <div>
-                      <h3 className="text-xl sm:text-2xl md:text-3xl font-sans font-bold text-[#111215] dark:text-[#FAF8F5] group-hover:text-[#1447E6] dark:group-hover:text-[#60A5FA] transition-colors">
+                      <h3 className="text-lg sm:text-2xl md:text-3xl font-serif font-bold text-[#111215] dark:text-[#FAF8F5] group-hover:text-[#1447E6] dark:group-hover:text-[#60A5FA] transition-colors leading-snug">
                         {cap.title}
                       </h3>
                       <p className="text-xs sm:text-sm font-mono text-[#58554E] dark:text-[#9DA2B3] mt-1">
@@ -63,19 +63,19 @@ export const Capabilities: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-4 self-end md:self-auto">
+                  <div className="flex items-center gap-3 shrink-0 pt-0.5">
                     <span className="hidden sm:inline-block text-xs font-mono text-[#8A867E] dark:text-[#787D8E]">
                       {isOpen ? 'Collapse' : 'Learn More'}
                     </span>
                     <motion.div
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="w-9 h-9 rounded-xl border border-[#E6E1D6] dark:border-[#2D3142] group-hover:border-[#1447E6] dark:group-hover:border-[#60A5FA] flex items-center justify-center transition-colors bg-white dark:bg-[#161824] shadow-xs"
+                      className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl border border-[#E6E1D6] dark:border-[#2D3142] group-hover:border-[#1447E6] dark:group-hover:border-[#60A5FA] flex items-center justify-center transition-colors bg-white dark:bg-[#161824] shadow-xs"
                     >
                       {isOpen ? (
-                        <Minus className="w-4 h-4 text-[#1447E6] dark:text-[#60A5FA]" />
+                        <Minus className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-[#1447E6] dark:text-[#60A5FA]" />
                       ) : (
-                        <Plus className="w-4 h-4 text-[#58554E] dark:text-[#9DA2B3] group-hover:text-[#1447E6] dark:group-hover:text-[#60A5FA]" />
+                        <Plus className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-[#58554E] dark:text-[#9DA2B3] group-hover:text-[#1447E6] dark:group-hover:text-[#60A5FA]" />
                       )}
                     </motion.div>
                   </div>
@@ -91,18 +91,18 @@ export const Capabilities: React.FC = () => {
                       transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                       className="overflow-hidden"
                     >
-                      <div className="mt-8 pt-6 border-t border-[#E6E1D6]/60 dark:border-[#222533]/60 grid grid-cols-1 lg:grid-cols-12 gap-8 text-sm">
+                      <div className="mt-6 sm:mt-8 pt-6 border-t border-[#E6E1D6]/60 dark:border-[#222533]/60 grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 text-sm">
                         <div className="lg:col-span-6 space-y-4">
                           <div>
                             <span className="text-xs font-mono uppercase text-[#8A867E] dark:text-[#787D8E] block mb-1">
                               Overview
                             </span>
-                            <p className="text-[#58554E] dark:text-[#9DA2B3] leading-relaxed">
+                            <p className="text-xs sm:text-sm text-[#58554E] dark:text-[#9DA2B3] leading-relaxed">
                               {cap.description}
                             </p>
                           </div>
 
-                          <div className="p-4 rounded-xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533]">
+                          <div className="p-3.5 sm:p-4 rounded-xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533]">
                             <span className="text-xs font-mono uppercase text-[#1447E6] dark:text-[#60A5FA] font-semibold block mb-1">
                               Key Outcome
                             </span>
@@ -112,7 +112,7 @@ export const Capabilities: React.FC = () => {
                           </div>
                         </div>
 
-                        <div className="lg:col-span-6 space-y-5">
+                        <div className="lg:col-span-6 space-y-4 sm:space-y-5">
                           <div>
                             <span className="text-xs font-mono uppercase text-[#8A867E] dark:text-[#787D8E] block mb-2">
                               Deliverables
@@ -120,7 +120,7 @@ export const Capabilities: React.FC = () => {
                             <ul className="space-y-2">
                               {cap.deliverables.map((item, idx) => (
                                 <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#58554E] dark:text-[#9DA2B3]">
-                                  <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+                                  <Check className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-emerald-500 shrink-0 mt-0.5" />
                                   <span>{item}</span>
                                 </li>
                               ))}
@@ -131,7 +131,7 @@ export const Capabilities: React.FC = () => {
                             <span className="text-xs font-mono uppercase text-[#8A867E] dark:text-[#787D8E] block mb-2">
                               Core Tools
                             </span>
-                            <div className="flex flex-wrap gap-2">
+                            <div className="flex flex-wrap gap-1.5 sm:gap-2">
                               {cap.technologies.map((tech, idx) => (
                                 <span
                                   key={idx}

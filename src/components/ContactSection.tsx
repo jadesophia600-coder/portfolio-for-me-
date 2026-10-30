@@ -71,7 +71,7 @@ export const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-24 sm:py-32 bg-[#111215] text-[#FAF8F5] relative overflow-hidden">
+    <section id="contact" className="py-20 sm:py-28 lg:py-32 bg-[#111215] text-[#FAF8F5] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <motion.div
@@ -79,13 +79,13 @@ export const ContactSection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-white/10"
+          className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 pb-8 sm:pb-12 border-b border-white/10"
         >
           <div>
             <div className="text-xs font-mono text-[#60A5FA] uppercase tracking-wider mb-2 font-semibold">
               <span>GET IN TOUCH</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-sans font-extrabold tracking-tight text-white leading-tight">
+            <h2 className="text-3xl sm:text-5xl font-serif font-bold tracking-tight text-white leading-tight">
               Let's build something great.
             </h2>
           </div>
@@ -94,14 +94,14 @@ export const ContactSection: React.FC = () => {
           </p>
         </motion.div>
 
-        <div className="mt-14 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+        <div className="mt-10 sm:mt-14 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
           {/* Left Column: Direct Contact Info (5 cols) */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 space-y-8"
+            className="lg:col-span-5 space-y-6 sm:space-y-8"
           >
             <div className="space-y-4">
               <div className="text-xs font-mono uppercase tracking-wider text-white/50">
@@ -111,7 +111,7 @@ export const ContactSection: React.FC = () => {
               {/* Email Card with 1-click copy */}
               <motion.div
                 whileHover={{ y: -2 }}
-                className="p-6 rounded-2xl bg-white/5 border border-white/10 space-y-4"
+                className="p-5 sm:p-6 rounded-2xl bg-white/5 border border-white/10 space-y-3 sm:space-y-4"
               >
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-mono text-white/60">Email Address</span>
@@ -135,7 +135,7 @@ export const ContactSection: React.FC = () => {
 
                 <a
                   href={`mailto:${developer.email}`}
-                  className="block text-lg sm:text-xl font-mono font-bold text-white hover:text-[#60A5FA] transition-colors break-all"
+                  className="block text-base sm:text-xl font-mono font-bold text-white hover:text-[#60A5FA] transition-colors break-all"
                 >
                   {developer.email}
                 </a>
@@ -143,7 +143,7 @@ export const ContactSection: React.FC = () => {
             </div>
 
             {/* Quick Details */}
-            <div className="space-y-4 text-xs font-mono text-white/70">
+            <div className="space-y-3.5 sm:space-y-4 text-xs font-mono text-white/70">
               <div className="flex items-center justify-between py-2 border-b border-white/10">
                 <span className="text-white/50">Location</span>
                 <span className="text-white font-medium">{developer.availability.location}</span>
@@ -190,16 +190,16 @@ export const ContactSection: React.FC = () => {
             transition={{ duration: 0.65, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-7"
           >
-            <div className="p-8 sm:p-10 rounded-2xl bg-white/[0.03] border border-white/10 shadow-2xl">
+            <div className="p-6 sm:p-10 rounded-2xl bg-white/[0.03] border border-white/10 shadow-2xl">
               {isSubmitted ? (
-                <div className="py-12 text-center space-y-4">
-                  <div className="w-14 h-14 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 flex items-center justify-center mx-auto">
-                    <CheckCircle2 className="w-7 h-7" />
+                <div className="py-10 sm:py-12 text-center space-y-4">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 flex items-center justify-center mx-auto">
+                    <CheckCircle2 className="w-6 h-6 sm:w-7 sm:h-7" />
                   </div>
-                  <h3 className="text-2xl font-sans font-bold text-white">
+                  <h3 className="text-xl sm:text-2xl font-serif font-bold text-white">
                     Thank you for reaching out!
                   </h3>
-                  <p className="text-sm text-white/70 max-w-md mx-auto leading-relaxed">
+                  <p className="text-xs sm:text-sm text-white/70 max-w-md mx-auto leading-relaxed">
                     Your message has been received. I will review your note and get back to you at <span className="text-white font-mono">{formData.email}</span> within 24 hours.
                   </p>
                   <button
@@ -213,7 +213,7 @@ export const ContactSection: React.FC = () => {
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
                   <div>
                     <label className="block text-xs font-mono text-white/70 uppercase tracking-wider mb-2">
                       Your Name
@@ -223,7 +223,7 @@ export const ContactSection: React.FC = () => {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="Jane Doe or Acme Corp"
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/15 text-white placeholder-white/30 text-sm focus:outline-none focus:border-[#60A5FA] focus:ring-1 focus:ring-[#60A5FA] transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/15 text-white placeholder-white/30 text-base sm:text-sm focus:outline-none focus:border-[#60A5FA] focus:ring-1 focus:ring-[#60A5FA] transition-colors"
                     />
                     {errors.name && <p className="mt-1 text-xs text-red-400 font-mono">{errors.name}</p>}
                   </div>
@@ -237,7 +237,7 @@ export const ContactSection: React.FC = () => {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="jane@example.com"
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/15 text-white placeholder-white/30 text-sm focus:outline-none focus:border-[#60A5FA] focus:ring-1 focus:ring-[#60A5FA] transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/15 text-white placeholder-white/30 text-base sm:text-sm focus:outline-none focus:border-[#60A5FA] focus:ring-1 focus:ring-[#60A5FA] transition-colors"
                     />
                     {errors.email && <p className="mt-1 text-xs text-red-400 font-mono">{errors.email}</p>}
                   </div>
@@ -252,7 +252,7 @@ export const ContactSection: React.FC = () => {
                           key={type}
                           type="button"
                           onClick={() => setFormData({ ...formData, projectType: type })}
-                          className={`px-3.5 py-2.5 rounded-xl text-xs font-mono text-left transition-all border ${
+                          className={`px-3 sm:px-3.5 py-2 sm:py-2.5 rounded-xl text-xs font-mono text-left transition-all border ${
                             formData.projectType === type
                               ? 'bg-white text-[#111215] font-semibold border-white shadow-xs'
                               : 'bg-white/5 border-white/10 text-white/70 hover:border-white/30'
@@ -273,14 +273,14 @@ export const ContactSection: React.FC = () => {
                       value={formData.description}
                       onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                       placeholder="Tell me a bit about what you want to build, key goals, and any relevant timeline..."
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/15 text-white placeholder-white/30 text-sm focus:outline-none focus:border-[#60A5FA] focus:ring-1 focus:ring-[#60A5FA] transition-colors resize-none"
+                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/15 text-white placeholder-white/30 text-base sm:text-sm focus:outline-none focus:border-[#60A5FA] focus:ring-1 focus:ring-[#60A5FA] transition-colors resize-none"
                     />
                     {errors.description && (
                       <p className="mt-1 text-xs text-red-400 font-mono">{errors.description}</p>
                     )}
                   </div>
 
-                  <div className="flex flex-col sm:flex-row items-center gap-3 pt-2">
+                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
                     <motion.button
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}

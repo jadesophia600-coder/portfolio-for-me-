@@ -51,7 +51,7 @@ export const Hero: React.FC = () => {
   };
 
   return (
-    <section className="relative min-h-screen pt-28 pb-20 sm:pt-36 sm:pb-28 flex flex-col justify-between">
+    <section className="relative min-h-[90vh] pt-24 pb-16 sm:pt-32 sm:pb-24 lg:pt-36 lg:pb-28 flex flex-col justify-between overflow-hidden">
       {/* Subtle Grid Pattern for clean structure */}
       <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" />
 
@@ -61,7 +61,7 @@ export const Hero: React.FC = () => {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-wrap items-center justify-between gap-4 pb-8 border-b border-[#E6E1D6] dark:border-[#222533] text-xs font-mono text-[#58554E] dark:text-[#9DA2B3]"
+          className="flex flex-wrap items-center justify-between gap-3 pb-6 sm:pb-8 border-b border-[#E6E1D6] dark:border-[#222533] text-xs font-mono text-[#58554E] dark:text-[#9DA2B3]"
         >
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#1447E6] dark:bg-[#60A5FA]" />
@@ -70,17 +70,17 @@ export const Hero: React.FC = () => {
             <span>PORTFOLIO &bull; 2026</span>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
             <span className="hidden sm:inline-block text-[#58554E] dark:text-[#9DA2B3]">{developer.availability.location}</span>
-            <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 font-semibold border border-emerald-500/20 flex items-center gap-1.5">
+            <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 font-semibold border border-emerald-500/20 flex items-center gap-1.5 text-[11px]">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              AVAILABLE FOR ROLES
+              AVAILABLE FOR HIRE
             </span>
           </div>
         </motion.div>
 
         {/* Hero Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 pt-10 lg:pt-14 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 pt-8 sm:pt-10 lg:pt-14 items-center">
           {/* Left Column: Personal Introduction & Narrative (7 cols) */}
           <motion.div
             variants={containerVariants}
@@ -91,38 +91,38 @@ export const Hero: React.FC = () => {
             {/* Role Monogram Pill */}
             <motion.div
               variants={itemVariants}
-              className="inline-flex items-center gap-2.5 mb-6 text-xs font-mono text-[#1447E6] dark:text-[#60A5FA] font-semibold tracking-wider uppercase"
+              className="inline-flex items-center gap-2 mb-4 sm:mb-6 text-xs font-mono text-[#1447E6] dark:text-[#60A5FA] font-semibold tracking-wider uppercase"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-[#1447E6] dark:bg-[#60A5FA]" />
               <span>{developer.title}</span>
             </motion.div>
 
-            {/* Clear, Human Headline */}
+            {/* Clear, Human Headline with Merriweather Serif */}
             <motion.h1
               variants={itemVariants}
-              className="text-4xl sm:text-6xl lg:text-7xl font-sans font-extrabold tracking-tight text-[#111215] dark:text-[#FAF8F5] leading-[1.06] mb-8"
+              className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-[#111215] dark:text-[#FAF8F5] leading-[1.12] mb-6 sm:mb-8"
             >
-              Building clean, fast, and thoughtful <span className="text-[#1447E6] dark:text-[#60A5FA]">web experiences.</span>
+              Building clean, fast, and thoughtful <span className="italic font-normal text-[#1447E6] dark:text-[#60A5FA]">web experiences.</span>
             </motion.h1>
 
             {/* Grounded Bio Summary */}
             <motion.p
               variants={itemVariants}
-              className="text-lg sm:text-xl text-[#58554E] dark:text-[#9DA2B3] max-w-2xl leading-relaxed mb-10 font-normal"
+              className="text-base sm:text-lg lg:text-xl text-[#58554E] dark:text-[#9DA2B3] max-w-2xl leading-relaxed mb-8 sm:mb-10 font-normal font-sans"
             >
               Hi, I'm Victor. I build responsive web applications and interactive websites with a focus on React, TypeScript, and modern frontend architecture. I care about snappy performance, clean design details, and reliable code.
             </motion.p>
 
-            {/* Action CTA Group */}
+            {/* Action CTA Group - Fully responsive on mobile */}
             <motion.div
               variants={itemVariants}
-              className="flex flex-wrap items-center gap-4 sm:gap-5"
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto"
             >
               <motion.a
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 href="#works"
-                className="px-6 py-3.5 rounded-xl bg-[#111215] dark:bg-[#FAF8F5] text-[#FAF8F5] dark:text-[#111215] font-mono text-xs sm:text-sm font-semibold hover:bg-[#1447E6] dark:hover:bg-[#3B82F6] dark:hover:text-white transition-colors shadow-sm flex items-center gap-2.5 group"
+                className="w-full sm:w-auto justify-center px-6 py-3.5 rounded-xl bg-[#111215] dark:bg-[#FAF8F5] text-[#FAF8F5] dark:text-[#111215] font-mono text-xs sm:text-sm font-semibold hover:bg-[#1447E6] dark:hover:bg-[#3B82F6] dark:hover:text-white transition-colors shadow-sm flex items-center gap-2.5 group text-center"
               >
                 <span>View Selected Projects</span>
                 <ArrowDown className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
@@ -132,7 +132,7 @@ export const Hero: React.FC = () => {
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 href="#contact"
-                className="px-6 py-3.5 rounded-xl border border-[#D5CFCE] dark:border-[#2D3142] bg-white dark:bg-[#12141D] text-[#111215] dark:text-white font-mono text-xs sm:text-sm font-semibold hover:border-[#111215] dark:hover:border-white transition-colors flex items-center gap-2 group shadow-xs"
+                className="w-full sm:w-auto justify-center px-6 py-3.5 rounded-xl border border-[#D5CFCE] dark:border-[#2D3142] bg-white dark:bg-[#12141D] text-[#111215] dark:text-white font-mono text-xs sm:text-sm font-semibold hover:border-[#111215] dark:hover:border-white transition-colors flex items-center gap-2 group shadow-xs text-center"
               >
                 <span>Get in Touch</span>
                 <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -142,14 +142,14 @@ export const Hero: React.FC = () => {
             {/* Key Focus Highlights */}
             <motion.div
               variants={itemVariants}
-              className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-10 mt-10 border-t border-[#E6E1D6] dark:border-[#222533]"
+              className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 pt-8 sm:pt-10 mt-8 sm:mt-10 border-t border-[#E6E1D6] dark:border-[#222533]"
             >
               {developer.stats.map((stat, idx) => (
-                <div key={idx} className="space-y-1">
-                  <div className="text-base sm:text-lg font-sans font-bold text-[#111215] dark:text-[#FAF8F5] leading-snug">
+                <div key={idx} className="space-y-0.5">
+                  <div className="text-sm sm:text-base lg:text-lg font-serif font-bold text-[#111215] dark:text-[#FAF8F5] leading-snug">
                     {stat.value}
                   </div>
-                  <div className="text-xs font-mono text-[#8A867E] dark:text-[#787D8E]">
+                  <div className="text-[11px] sm:text-xs font-mono text-[#8A867E] dark:text-[#787D8E]">
                     {stat.label}
                   </div>
                 </div>
@@ -158,7 +158,7 @@ export const Hero: React.FC = () => {
           </motion.div>
 
           {/* Right Column: Interactive Video & Code Showcase (5 cols) */}
-          <div className="lg:col-span-5 flex flex-col items-center">
+          <div className="lg:col-span-5 flex flex-col items-center w-full">
             <motion.div
               initial={{ opacity: 0, y: 32, scale: 0.96 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -167,21 +167,21 @@ export const Hero: React.FC = () => {
               className="w-full rounded-2xl overflow-hidden border border-[#E6E1D6] dark:border-[#222533] bg-white dark:bg-[#12141D] shadow-lifted"
             >
               {/* Window Title Bar */}
-              <div className="px-4 py-3 bg-[#F3EFE9] dark:bg-[#161824] border-b border-[#E6E1D6] dark:border-[#222533] flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <span className="w-3 h-3 rounded-full bg-[#FF5F56] border border-[#E0443E]" />
-                  <span className="w-3 h-3 rounded-full bg-[#FFBD2E] border border-[#DEA123]" />
-                  <span className="w-3 h-3 rounded-full bg-[#27C93F] border border-[#1AAB29]" />
-                  <span className="ml-2 text-[11px] font-mono text-[#8A867E] dark:text-[#787D8E] hidden sm:inline">
+              <div className="px-3 sm:px-4 py-2.5 sm:py-3 bg-[#F3EFE9] dark:bg-[#161824] border-b border-[#E6E1D6] dark:border-[#222533] flex items-center justify-between">
+                <div className="flex items-center gap-1.5 sm:gap-2">
+                  <span className="w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-full bg-[#FF5F56] border border-[#E0443E]" />
+                  <span className="w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-full bg-[#FFBD2E] border border-[#DEA123]" />
+                  <span className="w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-full bg-[#27C93F] border border-[#1AAB29]" />
+                  <span className="ml-1 sm:ml-2 text-[10px] sm:text-[11px] font-mono text-[#8A867E] dark:text-[#787D8E] hidden xs:inline truncate max-w-[130px] sm:max-w-none">
                     interactive-3d-reel.mp4
                   </span>
                 </div>
 
                 {/* Tabs */}
-                <div className="flex items-center gap-1 bg-white/70 dark:bg-[#1E2230] p-1 rounded-lg border border-[#E6E1D6] dark:border-white/10">
+                <div className="flex items-center gap-1 bg-white/70 dark:bg-[#1E2230] p-0.5 sm:p-1 rounded-lg border border-[#E6E1D6] dark:border-white/10">
                   <button
                     onClick={() => setHeroTab('video')}
-                    className={`px-2.5 py-1 rounded text-xs font-mono transition-colors flex items-center gap-1 ${
+                    className={`px-2 sm:px-2.5 py-1 rounded text-[11px] sm:text-xs font-mono transition-colors flex items-center gap-1 ${
                       heroTab === 'video'
                         ? 'bg-[#111215] dark:bg-white text-white dark:text-[#111215] font-semibold'
                         : 'text-[#58554E] dark:text-[#9DA2B3] hover:text-[#111215] dark:hover:text-white'
@@ -192,7 +192,7 @@ export const Hero: React.FC = () => {
                   </button>
                   <button
                     onClick={() => setHeroTab('code')}
-                    className={`px-2.5 py-1 rounded text-xs font-mono transition-colors flex items-center gap-1 ${
+                    className={`px-2 sm:px-2.5 py-1 rounded text-[11px] sm:text-xs font-mono transition-colors flex items-center gap-1 ${
                       heroTab === 'code'
                         ? 'bg-[#111215] dark:bg-white text-white dark:text-[#111215] font-semibold'
                         : 'text-[#58554E] dark:text-[#9DA2B3] hover:text-[#111215] dark:hover:text-white'
@@ -245,7 +245,7 @@ export const Hero: React.FC = () => {
                     </div>
                   </>
                 ) : (
-                  <div className="w-full h-full p-5 bg-[#0D1117] text-white font-mono text-xs overflow-auto leading-relaxed">
+                  <div className="w-full h-full p-4 sm:p-5 bg-[#0D1117] text-white font-mono text-[11px] sm:text-xs overflow-auto leading-relaxed">
                     <div className="text-[#8B949E] mb-2">// Victor's Core Engineering Setup</div>
                     <div><span className="text-[#FF7B72]">const</span> <span className="text-[#79C0FF]">engineer</span> = &#123;</div>
                     <div className="pl-4"><span className="text-[#7EE787]">name</span>: <span className="text-[#A5D6FF]">"Victor Ogunsanya"</span>,</div>
@@ -262,7 +262,7 @@ export const Hero: React.FC = () => {
               </div>
 
               {/* Caption Footer */}
-              <div className="px-4 py-3 bg-[#FAF8F5] dark:bg-[#12141D] text-xs font-mono text-[#58554E] dark:text-[#9DA2B3] flex items-center justify-between border-t border-[#E6E1D6] dark:border-[#222533]">
+              <div className="px-3 sm:px-4 py-2.5 sm:py-3 bg-[#FAF8F5] dark:bg-[#12141D] text-[11px] sm:text-xs font-mono text-[#58554E] dark:text-[#9DA2B3] flex items-center justify-between border-t border-[#E6E1D6] dark:border-[#222533]">
                 <span>Featured Interactive Reel</span>
                 <span className="text-[#1447E6] dark:text-[#60A5FA]">Three.js &bull; React &bull; Tailwind</span>
               </div>

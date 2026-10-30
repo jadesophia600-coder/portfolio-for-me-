@@ -7,22 +7,22 @@ export const About: React.FC = () => {
   const { developer, faqs } = PORTFOLIO_CONFIG;
 
   return (
-    <section id="about" className="py-24 sm:py-32 bg-[#F3EFE9]/50 dark:bg-[#0D0F16] border-t border-[#E6E1D6] dark:border-[#222533] relative">
+    <section id="about" className="py-20 sm:py-28 lg:py-32 bg-[#F3EFE9]/50 dark:bg-[#0D0F16] border-t border-[#E6E1D6] dark:border-[#222533] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
           {/* Left Column: Profile Card & Core Principles (5 cols) */}
           <motion.div
             initial={{ opacity: 0, y: 32 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 space-y-8"
+            className="lg:col-span-5 space-y-6 sm:space-y-8"
           >
             <div>
               <div className="text-xs font-mono text-[#1447E6] dark:text-[#60A5FA] uppercase tracking-wider mb-2 font-semibold">
                 <span>ABOUT ME</span>
               </div>
-              <h2 className="text-3xl sm:text-5xl font-sans font-extrabold tracking-tight text-[#111215] dark:text-[#FAF8F5]">
+              <h2 className="text-3xl sm:text-5xl font-serif font-bold tracking-tight text-[#111215] dark:text-[#FAF8F5]">
                 Behind the code.
               </h2>
             </div>
@@ -30,10 +30,10 @@ export const About: React.FC = () => {
             {/* Profile Info Card */}
             <motion.div
               whileHover={{ y: -4, transition: { duration: 0.25 } }}
-              className="p-8 rounded-2xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] shadow-xs flex flex-col justify-between space-y-6"
+              className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] shadow-xs flex flex-col justify-between space-y-5 sm:space-y-6"
             >
               <div className="flex items-center justify-between">
-                <div className="w-12 h-12 rounded-xl bg-[#111215] dark:bg-[#1E2230] text-[#FAF8F5] flex items-center justify-center font-mono text-xl font-bold border border-transparent dark:border-white/10 shadow-xs">
+                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-[#111215] dark:bg-[#1E2230] text-[#FAF8F5] flex items-center justify-center font-mono text-lg sm:text-xl font-bold border border-transparent dark:border-white/10 shadow-xs">
                   {developer.shortName}
                 </div>
                 <div className="text-right font-mono text-xs text-[#58554E] dark:text-[#9DA2B3]">
@@ -43,7 +43,7 @@ export const About: React.FC = () => {
               </div>
 
               <div>
-                <h3 className="text-xl font-sans font-bold text-[#111215] dark:text-[#FAF8F5]">
+                <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#111215] dark:text-[#FAF8F5]">
                   {developer.name}
                 </h3>
                 <p className="text-xs font-mono text-[#8A867E] dark:text-[#787D8E] mt-0.5">
@@ -68,10 +68,10 @@ export const About: React.FC = () => {
             </motion.div>
 
             {/* Guiding Principles */}
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               <motion.div
                 whileHover={{ x: 4, transition: { duration: 0.2 } }}
-                className="p-4 rounded-xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] flex items-start gap-3 shadow-xs"
+                className="p-3.5 sm:p-4 rounded-xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] flex items-start gap-3 shadow-xs"
               >
                 <Zap className="w-5 h-5 text-[#1447E6] dark:text-[#60A5FA] shrink-0 mt-0.5" />
                 <div>
@@ -82,7 +82,7 @@ export const About: React.FC = () => {
 
               <motion.div
                 whileHover={{ x: 4, transition: { duration: 0.2 } }}
-                className="p-4 rounded-xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] flex items-start gap-3 shadow-xs"
+                className="p-3.5 sm:p-4 rounded-xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] flex items-start gap-3 shadow-xs"
               >
                 <Code2 className="w-5 h-5 text-[#1447E6] dark:text-[#60A5FA] shrink-0 mt-0.5" />
                 <div>
@@ -93,7 +93,7 @@ export const About: React.FC = () => {
 
               <motion.div
                 whileHover={{ x: 4, transition: { duration: 0.2 } }}
-                className="p-4 rounded-xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] flex items-start gap-3 shadow-xs"
+                className="p-3.5 sm:p-4 rounded-xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] flex items-start gap-3 shadow-xs"
               >
                 <MessageSquare className="w-5 h-5 text-[#1447E6] dark:text-[#60A5FA] shrink-0 mt-0.5" />
                 <div>
@@ -110,10 +110,10 @@ export const About: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.65, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-7 space-y-12"
+            className="lg:col-span-7 space-y-8 sm:space-y-12"
           >
-            {/* Authentic Narrative Bio */}
-            <div className="space-y-6 text-[#58554E] dark:text-[#9DA2B3] text-base sm:text-lg leading-relaxed">
+            {/* Authentic Narrative Bio in Merriweather Serif */}
+            <div className="space-y-5 sm:space-y-6 text-[#58554E] dark:text-[#9DA2B3] text-base sm:text-lg leading-relaxed font-serif">
               <p>
                 I am a web developer with a genuine passion for building things that work well on the web. My focus is on writing clean, scalable JavaScript and TypeScript, paired with modern frameworks like React and Next.js.
               </p>
@@ -126,19 +126,19 @@ export const About: React.FC = () => {
             </div>
 
             {/* Common Questions */}
-            <div className="border-t border-[#E6E1D6] dark:border-[#222533] pt-10">
-              <h3 className="text-xl font-sans font-bold text-[#111215] dark:text-[#FAF8F5] mb-6">
+            <div className="border-t border-[#E6E1D6] dark:border-[#222533] pt-8 sm:pt-10">
+              <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#111215] dark:text-[#FAF8F5] mb-5 sm:mb-6">
                 Frequently Asked Questions
               </h3>
 
-              <div className="space-y-4">
+              <div className="space-y-3.5 sm:space-y-4">
                 {faqs.map((faq, idx) => (
                   <motion.div
                     key={idx}
                     whileHover={{ y: -2, transition: { duration: 0.2 } }}
-                    className="p-5 rounded-xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] shadow-xs"
+                    className="p-4 sm:p-5 rounded-xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] shadow-xs"
                   >
-                    <h4 className="font-sans font-bold text-sm sm:text-base text-[#111215] dark:text-[#FAF8F5] mb-2">
+                    <h4 className="font-serif font-bold text-sm sm:text-base text-[#111215] dark:text-[#FAF8F5] mb-2 leading-snug">
                       {faq.question}
                     </h4>
                     <p className="text-xs sm:text-sm text-[#58554E] dark:text-[#9DA2B3] leading-relaxed">

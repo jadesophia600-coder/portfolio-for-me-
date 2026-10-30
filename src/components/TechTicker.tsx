@@ -36,3 +36,4 @@ export const TechTicker: React.FC = () => {
     </div>
   );
 };
+

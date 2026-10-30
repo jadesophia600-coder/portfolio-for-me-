@@ -10,16 +10,16 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-[#FAF8F5] dark:bg-[#090A0E] text-[#111215] dark:text-[#FAF8F5] border-t border-[#E6E1D6] dark:border-[#222533] py-16">
+    <footer className="bg-[#FAF8F5] dark:bg-[#090A0E] text-[#111215] dark:text-[#FAF8F5] border-t border-[#E6E1D6] dark:border-[#222533] py-12 sm:py-16 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-[#E6E1D6] dark:border-[#222533]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-8 sm:gap-10 pb-8 sm:pb-12 border-b border-[#E6E1D6] dark:border-[#222533]">
           {/* Col 1: Wordmark & Bio (6 cols) */}
-          <div className="md:col-span-6 space-y-4">
+          <div className="sm:col-span-2 md:col-span-6 space-y-3 sm:space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-xl bg-[#111215] dark:bg-[#1E2230] text-[#FAF8F5] flex items-center justify-center font-mono font-bold text-xs border border-transparent dark:border-white/10 shadow-xs">
                 {developer.shortName}
               </div>
-              <span className="font-sans font-bold text-base tracking-tight text-[#111215] dark:text-[#FAF8F5]">
+              <span className="font-serif font-bold text-base sm:text-lg tracking-tight text-[#111215] dark:text-[#FAF8F5]">
                 {developer.name}
               </span>
             </div>
@@ -32,7 +32,7 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Col 2: Navigation Links (3 cols) */}
-          <div className="md:col-span-3 space-y-3">
+          <div className="md:col-span-3 space-y-2.5 sm:space-y-3">
             <div className="text-xs font-mono uppercase text-[#8A867E] dark:text-[#787D8E] tracking-wider font-semibold">
               Navigation
             </div>
@@ -46,7 +46,7 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Col 3: Network & Profiles (3 cols) */}
-          <div className="md:col-span-3 space-y-3">
+          <div className="md:col-span-3 space-y-2.5 sm:space-y-3">
             <div className="text-xs font-mono uppercase text-[#8A867E] dark:text-[#787D8E] tracking-wider font-semibold">
               Connect
             </div>
@@ -69,8 +69,8 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Bar: Copyright & Back-to-Top */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#8A867E] dark:text-[#787D8E]">
-          <div>
+        <div className="pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#8A867E] dark:text-[#787D8E]">
+          <div className="text-center sm:text-left">
             &copy; {new Date().getFullYear()} {developer.name}. Built with React, TypeScript &amp; Tailwind CSS.
           </div>
 
