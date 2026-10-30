@@ -164,7 +164,7 @@ export const Hero: React.FC = () => {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
               whileHover={{ y: -4, transition: { duration: 0.3 } }}
-              className="w-full rounded-2xl overflow-hidden border border-[#E6E1D6] dark:border-[#222533] bg-white dark:bg-[#12141D] shadow-lifted"
+              className="w-full rounded-2xl overflow-hidden border border-[#E6E1D6] dark:border-[#222533] bg-white dark:bg-[#12141D] shadow-lifted card-specular"
             >
               {/* Window Title Bar */}
               <div className="px-3 sm:px-4 py-2.5 sm:py-3 bg-[#F3EFE9] dark:bg-[#161824] border-b border-[#E6E1D6] dark:border-[#222533] flex items-center justify-between">
@@ -177,31 +177,45 @@ export const Hero: React.FC = () => {
                   </span>
                 </div>
 
-                {/* Tabs */}
-                <div className="flex items-center gap-1 bg-white/70 dark:bg-[#1E2230] p-0.5 sm:p-1 rounded-lg border border-[#E6E1D6] dark:border-white/10">
-                  <button
-                    onClick={() => setHeroTab('video')}
-                    className={`px-2 sm:px-2.5 py-1 rounded text-[11px] sm:text-xs font-mono transition-colors flex items-center gap-1 ${
-                      heroTab === 'video'
-                        ? 'bg-[#111215] dark:bg-white text-white dark:text-[#111215] font-semibold'
-                        : 'text-[#58554E] dark:text-[#9DA2B3] hover:text-[#111215] dark:hover:text-white'
-                    }`}
-                  >
-                    <Laptop className="w-3 h-3" />
-                    <span>Reel</span>
-                  </button>
-                  <button
-                    onClick={() => setHeroTab('code')}
-                    className={`px-2 sm:px-2.5 py-1 rounded text-[11px] sm:text-xs font-mono transition-colors flex items-center gap-1 ${
-                      heroTab === 'code'
-                        ? 'bg-[#111215] dark:bg-white text-white dark:text-[#111215] font-semibold'
-                        : 'text-[#58554E] dark:text-[#9DA2B3] hover:text-[#111215] dark:hover:text-white'
-                    }`}
-                  >
-                    <Code2 className="w-3 h-3" />
-                    <span>Stack</span>
-                  </button>
-                </div>
+              {/* Tabs with Emil Kowalski spring sliding pill */}
+              <div className="flex items-center gap-1 bg-[#EBE6DC] dark:bg-[#1E2230] p-0.5 sm:p-1 rounded-lg border border-[#E6E1D6] dark:border-white/10 relative">
+                <button
+                  onClick={() => setHeroTab('video')}
+                  className={`relative z-10 px-2.5 sm:px-3 py-1 rounded-md text-[11px] sm:text-xs font-mono transition-colors flex items-center gap-1 ${
+                    heroTab === 'video'
+                      ? 'text-[#111215] dark:text-white font-semibold'
+                      : 'text-[#58554E] dark:text-[#9DA2B3] hover:text-[#111215] dark:hover:text-white'
+                  }`}
+                >
+                  {heroTab === 'video' && (
+                    <motion.div
+                      layoutId="heroTabActive"
+                      transition={{ type: 'spring', stiffness: 450, damping: 32 }}
+                      className="absolute inset-0 bg-white dark:bg-[#2A2E3D] rounded-md shadow-xs -z-10"
+                    />
+                  )}
+                  <Laptop className="w-3 h-3" />
+                  <span>Reel</span>
+                </button>
+                <button
+                  onClick={() => setHeroTab('code')}
+                  className={`relative z-10 px-2.5 sm:px-3 py-1 rounded-md text-[11px] sm:text-xs font-mono transition-colors flex items-center gap-1 ${
+                    heroTab === 'code'
+                      ? 'text-[#111215] dark:text-white font-semibold'
+                      : 'text-[#58554E] dark:text-[#9DA2B3] hover:text-[#111215] dark:hover:text-white'
+                  }`}
+                >
+                  {heroTab === 'code' && (
+                    <motion.div
+                      layoutId="heroTabActive"
+                      transition={{ type: 'spring', stiffness: 450, damping: 32 }}
+                      className="absolute inset-0 bg-white dark:bg-[#2A2E3D] rounded-md shadow-xs -z-10"
+                    />
+                  )}
+                  <Code2 className="w-3 h-3" />
+                  <span>Stack</span>
+                </button>
+              </div>
               </div>
 
               {/* Window Content */}
@@ -215,6 +229,7 @@ export const Hero: React.FC = () => {
                       loop
                       muted={isMuted}
                       playsInline
+                      preload="metadata"
                       className="w-full h-full object-cover"
                     />
 

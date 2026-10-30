@@ -30,7 +30,7 @@ export const About: React.FC = () => {
             {/* Profile Info Card */}
             <motion.div
               whileHover={{ y: -4, transition: { duration: 0.25 } }}
-              className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] shadow-xs flex flex-col justify-between space-y-5 sm:space-y-6"
+              className="card-specular p-6 sm:p-8 rounded-2xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] shadow-xs flex flex-col justify-between space-y-5 sm:space-y-6"
             >
               <div className="flex items-center justify-between">
                 <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-[#111215] dark:bg-[#1E2230] text-[#FAF8F5] flex items-center justify-center font-mono text-lg sm:text-xl font-bold border border-transparent dark:border-white/10 shadow-xs">
@@ -71,7 +71,7 @@ export const About: React.FC = () => {
             <div className="space-y-3 sm:space-y-4">
               <motion.div
                 whileHover={{ x: 4, transition: { duration: 0.2 } }}
-                className="p-3.5 sm:p-4 rounded-xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] flex items-start gap-3 shadow-xs"
+                className="card-specular p-3.5 sm:p-4 rounded-xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] flex items-start gap-3 shadow-xs"
               >
                 <Zap className="w-5 h-5 text-[#1447E6] dark:text-[#60A5FA] shrink-0 mt-0.5" />
                 <div>
@@ -82,7 +82,7 @@ export const About: React.FC = () => {
 
               <motion.div
                 whileHover={{ x: 4, transition: { duration: 0.2 } }}
-                className="p-3.5 sm:p-4 rounded-xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] flex items-start gap-3 shadow-xs"
+                className="card-specular p-3.5 sm:p-4 rounded-xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] flex items-start gap-3 shadow-xs"
               >
                 <Code2 className="w-5 h-5 text-[#1447E6] dark:text-[#60A5FA] shrink-0 mt-0.5" />
                 <div>
@@ -93,7 +93,7 @@ export const About: React.FC = () => {
 
               <motion.div
                 whileHover={{ x: 4, transition: { duration: 0.2 } }}
-                className="p-3.5 sm:p-4 rounded-xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] flex items-start gap-3 shadow-xs"
+                className="card-specular p-3.5 sm:p-4 rounded-xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] flex items-start gap-3 shadow-xs"
               >
                 <MessageSquare className="w-5 h-5 text-[#1447E6] dark:text-[#60A5FA] shrink-0 mt-0.5" />
                 <div>
@@ -136,7 +136,7 @@ export const About: React.FC = () => {
                   <motion.div
                     key={idx}
                     whileHover={{ y: -2, transition: { duration: 0.2 } }}
-                    className="p-4 sm:p-5 rounded-xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] shadow-xs"
+                    className="card-specular p-4 sm:p-5 rounded-xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] shadow-xs"
                   >
                     <h4 className="font-serif font-bold text-sm sm:text-base text-[#111215] dark:text-[#FAF8F5] mb-2 leading-snug">
                       {faq.question}

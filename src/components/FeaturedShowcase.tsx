@@ -149,26 +149,40 @@ export const FeaturedShowcase: React.FC<FeaturedShowcaseProps> = ({ onOpenCaseSt
                         <span>Interactive Preview</span>
                       </div>
 
-                      <div className="flex items-center gap-1 bg-white dark:bg-[#161824] p-1 rounded-lg border border-[#E6E1D6] dark:border-[#2D3142] shadow-xs">
+                      <div className="flex items-center gap-1 bg-[#EBE6DC] dark:bg-[#1E2230] p-0.5 sm:p-1 rounded-lg border border-[#E6E1D6] dark:border-white/10 relative">
                         <button
                           onClick={() => toggleDeviceView(project.id, 'desktop')}
-                          className={`px-2.5 py-1 rounded text-[11px] font-mono flex items-center gap-1 transition-colors ${
+                          className={`relative z-10 px-2.5 py-1 rounded-md text-[11px] font-mono flex items-center gap-1 transition-colors ${
                             currentView === 'desktop'
-                              ? 'bg-[#111215] dark:bg-white text-white dark:text-[#090A0E] font-semibold'
-                              : 'text-[#8A867E] dark:text-[#787D8E] hover:text-[#111215] dark:hover:text-white'
+                              ? 'text-[#111215] dark:text-white font-semibold'
+                              : 'text-[#58554E] dark:text-[#9DA2B3] hover:text-[#111215] dark:hover:text-white'
                           }`}
                         >
+                          {currentView === 'desktop' && (
+                            <motion.div
+                              layoutId={`deviceToggle-${project.id}`}
+                              transition={{ type: 'spring', stiffness: 450, damping: 32 }}
+                              className="absolute inset-0 bg-white dark:bg-[#2A2E3D] rounded-md shadow-xs -z-10"
+                            />
+                          )}
                           <Monitor className="w-3 h-3" />
                           <span>Desktop</span>
                         </button>
                         <button
                           onClick={() => toggleDeviceView(project.id, 'mobile')}
-                          className={`px-2.5 py-1 rounded text-[11px] font-mono flex items-center gap-1 transition-colors ${
+                          className={`relative z-10 px-2.5 py-1 rounded-md text-[11px] font-mono flex items-center gap-1 transition-colors ${
                             currentView === 'mobile'
-                              ? 'bg-[#111215] dark:bg-white text-white dark:text-[#090A0E] font-semibold'
-                              : 'text-[#8A867E] dark:text-[#787D8E] hover:text-[#111215] dark:hover:text-white'
+                              ? 'text-[#111215] dark:text-white font-semibold'
+                              : 'text-[#58554E] dark:text-[#9DA2B3] hover:text-[#111215] dark:hover:text-white'
                           }`}
                         >
+                          {currentView === 'mobile' && (
+                            <motion.div
+                              layoutId={`deviceToggle-${project.id}`}
+                              transition={{ type: 'spring', stiffness: 450, damping: 32 }}
+                              className="absolute inset-0 bg-white dark:bg-[#2A2E3D] rounded-md shadow-xs -z-10"
+                            />
+                          )}
                           <Smartphone className="w-3 h-3" />
                           <span>Mobile</span>
                         </button>
@@ -180,7 +194,7 @@ export const FeaturedShowcase: React.FC<FeaturedShowcaseProps> = ({ onOpenCaseSt
                       layout
                       transition={{ type: 'spring', stiffness: 280, damping: 28 }}
                       whileHover={{ y: -4, transition: { duration: 0.3 } }}
-                      className={`relative mx-auto rounded-2xl bg-white dark:bg-[#12141D] border border-[#111215]/15 dark:border-white/10 shadow-browser overflow-hidden w-full ${
+                      className={`relative mx-auto rounded-2xl bg-white dark:bg-[#12141D] border border-[#111215]/15 dark:border-white/10 shadow-browser card-specular overflow-hidden w-full ${
                         currentView === 'mobile' ? 'max-w-[320px]' : 'max-w-full'
                       }`}
                     >

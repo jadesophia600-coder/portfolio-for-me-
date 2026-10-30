@@ -88,7 +88,7 @@ export const Capabilities: React.FC = () => {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                      transition={{ type: 'spring', stiffness: 320, damping: 30 }}
                       className="overflow-hidden"
                     >
                       <div className="mt-6 sm:mt-8 pt-6 border-t border-[#E6E1D6]/60 dark:border-[#222533]/60 grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 text-sm">
@@ -102,7 +102,7 @@ export const Capabilities: React.FC = () => {
                             </p>
                           </div>
 
-                          <div className="p-3.5 sm:p-4 rounded-xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533]">
+                          <div className="p-3.5 sm:p-4 rounded-xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] card-specular">
                             <span className="text-xs font-mono uppercase text-[#1447E6] dark:text-[#60A5FA] font-semibold block mb-1">
                               Key Outcome
                             </span>

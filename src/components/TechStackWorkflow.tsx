@@ -53,7 +53,7 @@ export const TechStackWorkflow: React.FC = () => {
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.5, delay: idx * 0.08, ease: [0.16, 1, 0.3, 1] }}
               whileHover={{ y: -5, transition: { duration: 0.25 } }}
-              className="p-5 sm:p-6 rounded-2xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] shadow-xs flex flex-col justify-between hover:border-[#1447E6]/40 dark:hover:border-[#3B82F6]/40 transition-colors"
+              className="p-5 sm:p-6 rounded-2xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] shadow-xs card-specular flex flex-col justify-between hover:border-[#1447E6]/40 dark:hover:border-[#3B82F6]/40 transition-colors"
             >
               <div>
                 <div className="flex items-center gap-2 mb-2">
@@ -117,7 +117,7 @@ export const TechStackWorkflow: React.FC = () => {
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.5, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
                 whileHover={{ y: -5, transition: { duration: 0.25 } }}
-                className="p-5 sm:p-6 rounded-2xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] shadow-xs flex flex-col justify-between hover:border-[#1447E6]/40 dark:hover:border-[#3B82F6]/40 transition-colors"
+                className="p-5 sm:p-6 rounded-2xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] shadow-xs card-specular flex flex-col justify-between hover:border-[#1447E6]/40 dark:hover:border-[#3B82F6]/40 transition-colors"
               >
                 <div>
                   <div className="flex items-center justify-between font-mono text-xs mb-3 sm:mb-4">

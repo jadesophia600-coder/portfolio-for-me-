@@ -111,7 +111,7 @@ export const ContactSection: React.FC = () => {
               {/* Email Card with 1-click copy */}
               <motion.div
                 whileHover={{ y: -2 }}
-                className="p-5 sm:p-6 rounded-2xl bg-white/5 border border-white/10 space-y-3 sm:space-y-4"
+                className="card-specular p-5 sm:p-6 rounded-2xl bg-white/5 border border-white/10 space-y-3 sm:space-y-4"
               >
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-mono text-white/60">Email Address</span>
@@ -190,7 +190,7 @@ export const ContactSection: React.FC = () => {
             transition={{ duration: 0.65, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-7"
           >
-            <div className="p-6 sm:p-10 rounded-2xl bg-white/[0.03] border border-white/10 shadow-2xl">
+            <div className="card-specular p-6 sm:p-10 rounded-2xl bg-white/[0.03] border border-white/10 shadow-2xl relative">
               {isSubmitted ? (
                 <div className="py-10 sm:py-12 text-center space-y-4">
                   <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 flex items-center justify-center mx-auto">
@@ -247,20 +247,30 @@ export const ContactSection: React.FC = () => {
                       Project Type
                     </label>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                      {projectTypes.map((type) => (
-                        <button
-                          key={type}
-                          type="button"
-                          onClick={() => setFormData({ ...formData, projectType: type })}
-                          className={`px-3 sm:px-3.5 py-2 sm:py-2.5 rounded-xl text-xs font-mono text-left transition-all border ${
-                            formData.projectType === type
-                              ? 'bg-white text-[#111215] font-semibold border-white shadow-xs'
-                              : 'bg-white/5 border-white/10 text-white/70 hover:border-white/30'
-                          }`}
-                        >
-                          {type}
-                        </button>
-                      ))}
+                      {projectTypes.map((type) => {
+                        const isSelected = formData.projectType === type;
+                        return (
+                          <button
+                            key={type}
+                            type="button"
+                            onClick={() => setFormData({ ...formData, projectType: type })}
+                            className={`relative px-3 sm:px-3.5 py-2 sm:py-2.5 rounded-xl text-xs font-mono text-left transition-colors border ${
+                              isSelected
+                                ? 'text-[#111215] font-semibold border-white'
+                                : 'bg-white/5 border-white/10 text-white/70 hover:border-white/30'
+                            }`}
+                          >
+                            {isSelected && (
+                              <motion.div
+                                layoutId="contactProjectType"
+                                className="absolute inset-0 bg-white rounded-xl shadow-xs"
+                                transition={{ type: 'spring', stiffness: 350, damping: 30 }}
+                              />
+                            )}
+                            <span className="relative z-10">{type}</span>
+                          </button>
+                        );
+                      })}
                     </div>
                   </div>
 

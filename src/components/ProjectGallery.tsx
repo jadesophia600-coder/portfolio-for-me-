@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { PORTFOLIO_CONFIG, Project } from '../data/portfolioData';
 import { ArrowUpRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -12,9 +12,12 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ onOpenCaseStudy 
 
   const { galleryProjects } = PORTFOLIO_CONFIG;
 
-  const filteredProjects = selectedCategory === 'All Projects'
-    ? galleryProjects
-    : galleryProjects.filter(p => p.category === selectedCategory);
+  // Karpathy principle: memoize derived data to avoid recalculation during re-renders
+  const filteredProjects = useMemo(() => {
+    return selectedCategory === 'All Projects'
+      ? galleryProjects
+      : galleryProjects.filter(p => p.category === selectedCategory);
+  }, [selectedCategory, galleryProjects]);
 
   return (
     <section className="py-20 sm:py-28 bg-[#F3EFE9]/60 dark:bg-[#0D0F16] border-y border-[#E6E1D6] dark:border-[#222533] relative overflow-hidden">
@@ -40,24 +43,32 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ onOpenCaseStudy 
           </p>
         </motion.div>
 
-        {/* Category Filter Bar - Horizontal Scroll on Mobile */}
+        {/* Category Filter Bar with Emil Kowalski sliding active indicator */}
         <div className="mt-6 sm:mt-8 flex items-center gap-2 overflow-x-auto pb-4 scrollbar-none border-b border-[#E6E1D6] dark:border-[#222533]">
-          {PORTFOLIO_CONFIG.categories.map(category => (
-            <motion.button
-              key={category}
-              layout
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={() => setSelectedCategory(category)}
-              className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs font-mono transition-colors duration-200 shrink-0 ${
-                selectedCategory === category
-                  ? 'bg-[#111215] dark:bg-white text-[#FAF8F5] dark:text-[#090A0E] font-semibold shadow-xs'
-                  : 'bg-white dark:bg-[#161824] text-[#58554E] dark:text-[#9DA2B3] border border-[#E6E1D6] dark:border-[#2D3142] hover:border-[#111215] dark:hover:border-white hover:text-[#111215] dark:hover:text-white'
-              }`}
-            >
-              {category}
-            </motion.button>
-          ))}
+          {PORTFOLIO_CONFIG.categories.map(category => {
+            const isSelected = selectedCategory === category;
+
+            return (
+              <button
+                key={category}
+                onClick={() => setSelectedCategory(category)}
+                className={`relative px-3.5 sm:px-4 py-2 rounded-xl text-xs font-mono transition-colors shrink-0 select-none ${
+                  isSelected
+                    ? 'text-[#FAF8F5] dark:text-[#090A0E] font-semibold'
+                    : 'text-[#58554E] dark:text-[#9DA2B3] hover:text-[#111215] dark:hover:text-white border border-[#E6E1D6] dark:border-[#2D3142] bg-white dark:bg-[#161824]'
+                }`}
+              >
+                {isSelected && (
+                  <motion.div
+                    layoutId="activeFilterPill"
+                    transition={{ type: 'spring', stiffness: 420, damping: 30 }}
+                    className="absolute inset-0 bg-[#111215] dark:bg-white rounded-xl shadow-xs -z-10"
+                  />
+                )}
+                <span>{category}</span>
+              </button>
+            );
+          })}
         </div>
 
         {/* Grid of Projects with Layout Animation */}
@@ -79,7 +90,7 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ onOpenCaseStudy 
                   transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
                   whileHover={{ y: -5, transition: { duration: 0.25 } }}
                   onClick={() => onOpenCaseStudy(project)}
-                  className={`${colSpan} group cursor-pointer flex flex-col justify-between p-5 sm:p-7 rounded-2xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] hover:border-[#1447E6]/40 dark:hover:border-[#3B82F6]/40 shadow-xs hover:shadow-lifted transition-colors relative overflow-hidden`}
+                  className={`${colSpan} group cursor-pointer flex flex-col justify-between p-5 sm:p-7 rounded-2xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] hover:border-[#1447E6]/40 dark:hover:border-[#3B82F6]/40 shadow-xs hover:shadow-lifted card-specular transition-colors relative overflow-hidden`}
                 >
                   {/* Project Header Info */}
                   <div>
@@ -116,6 +127,7 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ onOpenCaseStudy 
                     <img
                       src={project.image}
                       alt={project.title}
+                      loading="lazy"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-3 sm:p-4">
