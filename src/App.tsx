@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Project } from './data/portfolioData';
-import { CustomCursor } from './components/CustomCursor';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { FeaturedShowcase } from './components/FeaturedShowcase';
@@ -25,37 +24,34 @@ export const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-[#FAF8F5] dark:bg-[#090A0E] text-[#111215] dark:text-[#FAF8F5] flex flex-col relative selection:bg-[#1447E6] selection:text-white transition-colors duration-300">
-      {/* Precision Custom Cursor */}
-      <CustomCursor />
-
       {/* Floating Top Navigation */}
       <Navbar />
 
       {/* Main Portfolio Sections */}
       <main className="flex-1">
-        {/* 1. Signature Hero Section */}
+        {/* 1. Hero Introduction & Interactive Reel */}
         <Hero />
 
-        {/* 2. Flagship Interactive Projects Showcase */}
+        {/* 2. Featured Projects Showcase */}
         <FeaturedShowcase onOpenCaseStudy={handleOpenCaseStudy} />
 
-        {/* 3. Experimental Index & Complete Gallery */}
+        {/* 3. Project Archive & Exploration */}
         <ProjectGallery onOpenCaseStudy={handleOpenCaseStudy} />
 
-        {/* 4. Capabilities & Value Delivery */}
+        {/* 4. Capabilities & Services */}
         <Capabilities />
 
-        {/* 5. Engineering Stack & 4-Phase Workflow */}
+        {/* 5. Tech Stack & Practical Workflow */}
         <TechStackWorkflow />
 
-        {/* 6. Authentic Studio Manifesto & About */}
+        {/* 6. Authentic About & Philosophy */}
         <About />
 
-        {/* 7. Conversion Contact & Commission Brief Engine */}
+        {/* 7. Direct Contact Section */}
         <ContactSection />
       </main>
 
-      {/* Editorial Footer */}
+      {/* Footer */}
       <Footer />
 
       {/* Deep Dive Case Study Modal */}
@@ -68,4 +64,3 @@ export const App: React.FC = () => {
 };
 
 export default App;
-

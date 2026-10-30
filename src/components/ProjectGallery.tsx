@@ -1,18 +1,17 @@
 import React, { useState } from 'react';
 import { PORTFOLIO_CONFIG, Project } from '../data/portfolioData';
-import { ArrowUpRight, Sparkles, Filter, Check } from 'lucide-react';
-import { LiveMockupPreview } from './LiveMockupPreview';
+import { ArrowUpRight, Github } from 'lucide-react';
 
 interface ProjectGalleryProps {
   onOpenCaseStudy: (project: Project) => void;
 }
 
 export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ onOpenCaseStudy }) => {
-  const [selectedCategory, setSelectedCategory] = useState<string>('All Archive');
+  const [selectedCategory, setSelectedCategory] = useState<string>('All Projects');
 
   const { galleryProjects } = PORTFOLIO_CONFIG;
 
-  const filteredProjects = selectedCategory === 'All Archive'
+  const filteredProjects = selectedCategory === 'All Projects'
     ? galleryProjects
     : galleryProjects.filter(p => p.category === selectedCategory);
 
@@ -23,14 +22,14 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ onOpenCaseStudy 
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8">
           <div>
             <div className="text-xs font-mono text-[#1447E6] dark:text-[#60A5FA] uppercase tracking-wider mb-2 font-semibold">
-              [ 02 // EXPERIMENTAL INDEX &amp; ARCHIVE ]
+              <span>EXPLORE MORE</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-display font-extrabold tracking-tight text-[#111215] dark:text-[#FAF8F5]">
-              SPECIALIZED PLATFORMS &amp; LABS.
+            <h2 className="text-3xl sm:text-5xl font-sans font-extrabold tracking-tight text-[#111215] dark:text-[#FAF8F5]">
+              Archive &amp; Experiments.
             </h2>
           </div>
           <p className="text-sm sm:text-base text-[#58554E] dark:text-[#9DA2B3] max-w-sm font-normal">
-            Bespoke builds across translucent AI glass interfaces, local business headquarters, high-velocity acquisition funnels, and kinetic creative studios.
+            A catalog of client platforms, design systems, and frontend applications built across modern web technologies.
           </p>
         </div>
 
@@ -40,7 +39,7 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ onOpenCaseStudy 
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-4 py-2 rounded-full text-xs font-mono transition-all duration-200 ${
+              className={`px-4 py-2 rounded-xl text-xs font-mono transition-all duration-200 ${
                 selectedCategory === category
                   ? 'bg-[#111215] dark:bg-white text-[#FAF8F5] dark:text-[#090A0E] font-semibold shadow-xs'
                   : 'bg-white dark:bg-[#161824] text-[#58554E] dark:text-[#9DA2B3] border border-[#E6E1D6] dark:border-[#2D3142] hover:border-[#111215] dark:hover:border-white hover:text-[#111215] dark:hover:text-white'
@@ -51,7 +50,7 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ onOpenCaseStudy 
           ))}
         </div>
 
-        {/* Asymmetrical Experimental Grid - Unique Images #5, #6, #7, #8 */}
+        {/* Grid of Projects */}
         <div className="mt-12 grid grid-cols-1 md:grid-cols-12 gap-8">
           {filteredProjects.map((project, index) => {
             const colSpan = index % 2 === 0 ? 'md:col-span-7' : 'md:col-span-5';
@@ -60,13 +59,13 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ onOpenCaseStudy 
               <div
                 key={project.id}
                 onClick={() => onOpenCaseStudy(project)}
-                className={`${colSpan} group cursor-pointer flex flex-col justify-between p-6 sm:p-8 rounded-2xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] hover:border-[#1447E6]/50 dark:hover:border-[#3B82F6]/50 shadow-editorial hover:shadow-hover-pop transition-all duration-300 relative overflow-hidden`}
+                className={`${colSpan} group cursor-pointer flex flex-col justify-between p-6 sm:p-8 rounded-2xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] hover:border-[#1447E6]/40 dark:hover:border-[#3B82F6]/40 shadow-xs hover:shadow-lifted transition-all duration-300 relative overflow-hidden`}
               >
                 {/* Project Header Info */}
                 <div>
                   <div className="flex items-center justify-between text-xs font-mono text-[#8A867E] dark:text-[#787D8E] mb-3">
-                    <span className="font-bold text-[#1447E6] dark:text-[#60A5FA]">[ 0{index + 4} ]</span>
-                    <span className="px-2 py-0.5 rounded bg-[#FAF8F5] dark:bg-[#1A1D2B] border border-[#E6E1D6] dark:border-[#2D3142] text-[#111215] dark:text-[#FAF8F5] uppercase tracking-wider text-[10px]">
+                    <span className="font-bold text-[#1447E6] dark:text-[#60A5FA]">0{index + 4}</span>
+                    <span className="px-2.5 py-0.5 rounded-md bg-[#FAF8F5] dark:bg-[#1A1D2B] border border-[#E6E1D6] dark:border-[#2D3142] text-[#111215] dark:text-[#FAF8F5] uppercase tracking-wider text-[10px]">
                       {project.category}
                     </span>
                     <span>{project.year}</span>
@@ -79,24 +78,37 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({ onOpenCaseStudy 
                   <p className="mt-2 text-sm text-[#58554E] dark:text-[#9DA2B3] line-clamp-2">
                     {project.tagline}
                   </p>
-                </div>
 
-                {/* Embedded Responsive Browser Preview Box */}
-                <div className="mt-6 rounded-xl overflow-hidden border border-[#E6E1D6] dark:border-[#2D3142] bg-[#111215] shadow-inner h-56 sm:h-72">
-                  <LiveMockupPreview project={project} />
-                </div>
-
-                {/* Footer Metadata & CTA */}
-                <div className="mt-6 pt-4 border-t border-[#E6E1D6] dark:border-[#222533] flex items-center justify-between text-xs font-mono">
-                  <div className="flex items-center gap-2">
-                    <span className="text-[#8A867E] dark:text-[#787D8E]">Role:</span>
-                    <span className="text-[#111215] dark:text-[#FAF8F5] font-medium">{project.role}</span>
+                  <div className="mt-4 flex flex-wrap gap-1.5">
+                    {project.techStack.map((tech, idx) => (
+                      <span
+                        key={idx}
+                        className="px-2 py-0.5 rounded text-[10px] font-mono bg-[#FAF8F5] dark:bg-[#161824] text-[#58554E] dark:text-[#9DA2B3] border border-[#E6E1D6] dark:border-[#2D3142]"
+                      >
+                        {tech}
+                      </span>
+                    ))}
                   </div>
+                </div>
 
-                  <span className="text-[#1447E6] dark:text-[#60A5FA] font-semibold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                    <span>Inspect</span>
-                    <ArrowUpRight className="w-3.5 h-3.5" />
-                  </span>
+                {/* Visual Preview / Thumbnail Banner */}
+                <div className="mt-6 rounded-xl overflow-hidden border border-[#E6E1D6] dark:border-[#222533] bg-[#0E1017] aspect-video relative">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4">
+                    <div className="flex items-center justify-between w-full text-white text-xs font-mono">
+                      <span className="text-[11px] font-medium text-[#FAF8F5]">
+                        {project.metrics[0]?.label}: {project.metrics[0]?.value}
+                      </span>
+                      <span className="flex items-center gap-1 text-[#60A5FA] group-hover:translate-x-1 transition-transform">
+                        <span>Details</span>
+                        <ArrowUpRight className="w-3.5 h-3.5" />
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
             );

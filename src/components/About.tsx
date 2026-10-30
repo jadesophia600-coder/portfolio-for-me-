@@ -1,34 +1,34 @@
 import React from 'react';
 import { PORTFOLIO_CONFIG } from '../data/portfolioData';
-import { ArrowUpRight, Compass, Shield, Terminal, Zap, Code2, Heart } from 'lucide-react';
+import { Zap, Heart, Sparkles, Code2, Globe2, MessageSquare, ArrowUpRight } from 'lucide-react';
 
 export const About: React.FC = () => {
-  const { developer } = PORTFOLIO_CONFIG;
+  const { developer, faqs } = PORTFOLIO_CONFIG;
 
   return (
     <section id="about" className="py-24 sm:py-32 bg-[#F3EFE9]/50 dark:bg-[#0D0F16] border-t border-[#E6E1D6] dark:border-[#222533] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          {/* Left Column: Monogram Atelier Badge & Studio Principles (5 cols) */}
+          {/* Left Column: Profile Card & Core Principles (5 cols) */}
           <div className="lg:col-span-5 space-y-8">
             <div>
               <div className="text-xs font-mono text-[#1447E6] dark:text-[#60A5FA] uppercase tracking-wider mb-2 font-semibold">
-                [ 06 // PHILOSOPHY &amp; PEDIGREE ]
+                <span>ABOUT ME</span>
               </div>
-              <h2 className="text-3xl sm:text-5xl font-display font-extrabold tracking-tight text-[#111215] dark:text-[#FAF8F5]">
-                CODE AS CRAFT.
+              <h2 className="text-3xl sm:text-5xl font-sans font-extrabold tracking-tight text-[#111215] dark:text-[#FAF8F5]">
+                Behind the code.
               </h2>
             </div>
 
-            {/* Atelier Visual Identity Card */}
-            <div className="p-8 rounded-2xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] shadow-editorial flex flex-col justify-between space-y-6">
+            {/* Profile Info Card */}
+            <div className="p-8 rounded-2xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] shadow-xs flex flex-col justify-between space-y-6">
               <div className="flex items-center justify-between">
-                <div className="w-12 h-12 rounded-xl bg-[#111215] dark:bg-[#1E2230] text-[#FAF8F5] flex items-center justify-center font-mono text-xl font-bold border border-transparent dark:border-white/10">
+                <div className="w-12 h-12 rounded-xl bg-[#111215] dark:bg-[#1E2230] text-[#FAF8F5] flex items-center justify-center font-mono text-xl font-bold border border-transparent dark:border-white/10 shadow-xs">
                   {developer.shortName}
                 </div>
                 <div className="text-right font-mono text-xs text-[#58554E] dark:text-[#9DA2B3]">
                   <div>{developer.availability.location}</div>
-                  <div className="text-[#1447E6] dark:text-[#60A5FA]">{developer.availability.timezone}</div>
+                  <div className="text-[#1447E6] dark:text-[#60A5FA] font-medium">{developer.availability.timezone}</div>
                 </div>
               </div>
 
@@ -41,62 +41,78 @@ export const About: React.FC = () => {
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-[#E6E1D6] dark:border-[#222533] space-y-2 text-xs font-mono text-[#58554E] dark:text-[#9DA2B3]">
+              <div className="pt-4 border-t border-[#E6E1D6] dark:border-[#222533] space-y-2.5 text-xs font-mono text-[#58554E] dark:text-[#9DA2B3]">
                 <div className="flex justify-between">
-                  <span>Specialization:</span>
-                  <span className="font-semibold text-[#111215] dark:text-[#FAF8F5]">Bespoke Web Platforms</span>
+                  <span>Focus:</span>
+                  <span className="font-semibold text-[#111215] dark:text-[#FAF8F5]">React, Next.js &amp; TypeScript</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Code Philosophy:</span>
-                  <span className="font-semibold text-[#111215] dark:text-[#FAF8F5]">Zero Bloat &bull; Strict Types</span>
+                  <span>Approach:</span>
+                  <span className="font-semibold text-[#111215] dark:text-[#FAF8F5]">Clean Architecture &amp; Fast UX</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Milestone Record:</span>
-                  <span className="font-semibold text-emerald-500">100% On-Time</span>
+                  <span>Availability:</span>
+                  <span className="font-semibold text-emerald-600 dark:text-emerald-400">Open to Roles &amp; Contracts</span>
                 </div>
               </div>
             </div>
 
-            {/* Three Foundational Pillars */}
+            {/* Guiding Principles */}
             <div className="space-y-4">
-              <div className="p-4 rounded-xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] flex items-start gap-3">
+              <div className="p-4 rounded-xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] flex items-start gap-3 shadow-xs">
                 <Zap className="w-5 h-5 text-[#1447E6] dark:text-[#60A5FA] shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="text-xs font-mono font-bold uppercase text-[#111215] dark:text-[#FAF8F5]">Speed is a Feature</h4>
-                  <p className="text-xs text-[#58554E] dark:text-[#9DA2B3] mt-0.5">Sub-second load times aren't a vanity metric; every 100ms shaved directly lifts client conversion rates.</p>
+                  <h4 className="text-xs font-mono font-bold uppercase text-[#111215] dark:text-[#FAF8F5]">Speed as a Priority</h4>
+                  <p className="text-xs text-[#58554E] dark:text-[#9DA2B3] mt-0.5">Fast-loading pages and instant interactions make software feel natural and keep users engaged.</p>
                 </div>
               </div>
 
-              <div className="p-4 rounded-xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] flex items-start gap-3">
-                <Compass className="w-5 h-5 text-[#1447E6] dark:text-[#60A5FA] shrink-0 mt-0.5" />
+              <div className="p-4 rounded-xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] flex items-start gap-3 shadow-xs">
+                <Code2 className="w-5 h-5 text-[#1447E6] dark:text-[#60A5FA] shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="text-xs font-mono font-bold uppercase text-[#111215] dark:text-[#FAF8F5]">Design &amp; Engineering Symbiosis</h4>
-                  <p className="text-xs text-[#58554E] dark:text-[#9DA2B3] mt-0.5">I don't just mechanically slice Figma files. I translate visual intent into living, tactile software.</p>
+                  <h4 className="text-xs font-mono font-bold uppercase text-[#111215] dark:text-[#FAF8F5]">Design &amp; Code In Sync</h4>
+                  <p className="text-xs text-[#58554E] dark:text-[#9DA2B3] mt-0.5">I care about typography, spacing, and micro-interactions just as much as type safety and clean abstractions.</p>
+                </div>
+              </div>
+
+              <div className="p-4 rounded-xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] flex items-start gap-3 shadow-xs">
+                <MessageSquare className="w-5 h-5 text-[#1447E6] dark:text-[#60A5FA] shrink-0 mt-0.5" />
+                <div>
+                  <h4 className="text-xs font-mono font-bold uppercase text-[#111215] dark:text-[#FAF8F5]">Clear, Direct Communication</h4>
+                  <p className="text-xs text-[#58554E] dark:text-[#9DA2B3] mt-0.5">Frequent updates, live staging previews, and transparent timelines keep teams aligned at every step.</p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Editorial Narrative & Principles (7 cols) */}
-          <div className="lg:col-span-7 space-y-6 pt-2">
-            <div className="prose prose-lg text-[#58554E] dark:text-[#9DA2B3] space-y-6 text-base sm:text-lg leading-relaxed font-normal">
-              {developer.bio.map((paragraph, idx) => (
-                <p key={idx} className="first-of-type:text-xl first-of-type:text-[#111215] dark:first-of-type:text-[#FAF8F5] first-of-type:font-medium">
-                  {paragraph}
-                </p>
-              ))}
+          {/* Right Column: Personal Story & FAQs (7 cols) */}
+          <div className="lg:col-span-7 space-y-12">
+            {/* Authentic Narrative Bio */}
+            <div className="space-y-6 text-[#58554E] dark:text-[#9DA2B3] text-base sm:text-lg leading-relaxed">
+              <p>
+                I am a web developer with a genuine passion for building things that work well on the web. My focus is on writing clean, scalable JavaScript and TypeScript, paired with modern frameworks like React and Next.js.
+              </p>
+              <p>
+                Over the past several years, I've collaborated with founders, agencies, and product teams to bring ideas to life. I approach each project by first understanding the user's intent and business objective, then translating that into resilient code and intuitive interfaces.
+              </p>
+              <p>
+                When I'm not writing code, I enjoy exploring new web design trends, testing interactive animation techniques with Three.js and Framer Motion, and continuously improving my engineering toolkit.
+              </p>
             </div>
 
-            {/* Frequently Asked Questions by Prospective Clients */}
-            <div className="pt-8 border-t border-[#E6E1D6] dark:border-[#222533] space-y-4">
-              <div className="text-xs font-mono uppercase text-[#8A867E] dark:text-[#787D8E] mb-3 font-semibold">
-                Transparent Collaboration &amp; Client FAQ
-              </div>
+            {/* Common Questions */}
+            <div className="border-t border-[#E6E1D6] dark:border-[#222533] pt-10">
+              <h3 className="text-xl font-sans font-bold text-[#111215] dark:text-[#FAF8F5] mb-6">
+                Frequently Asked Questions
+              </h3>
 
-              <div className="space-y-3">
-                {PORTFOLIO_CONFIG.faqs.map((faq, idx) => (
-                  <div key={idx} className="p-5 rounded-xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533]">
-                    <h4 className="text-sm font-sans font-bold text-[#111215] dark:text-[#FAF8F5] mb-1.5">
+              <div className="space-y-4">
+                {faqs.map((faq, idx) => (
+                  <div
+                    key={idx}
+                    className="p-5 rounded-xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] shadow-xs"
+                  >
+                    <h4 className="font-sans font-bold text-sm sm:text-base text-[#111215] dark:text-[#FAF8F5] mb-2">
                       {faq.question}
                     </h4>
                     <p className="text-xs sm:text-sm text-[#58554E] dark:text-[#9DA2B3] leading-relaxed">

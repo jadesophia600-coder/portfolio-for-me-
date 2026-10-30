@@ -1,6 +1,6 @@
 import React from 'react';
 import { PORTFOLIO_CONFIG } from '../data/portfolioData';
-import { ArrowUpRight, CheckCircle, Code, Cpu, Database, Cloud, Terminal, GitBranch } from 'lucide-react';
+import { Code2, Database, Layers, Wrench, CheckCircle2 } from 'lucide-react';
 
 export const TechStackWorkflow: React.FC = () => {
   const { techStack, workflow } = PORTFOLIO_CONFIG;
@@ -8,13 +8,13 @@ export const TechStackWorkflow: React.FC = () => {
   const getCategoryIcon = (category: string) => {
     switch (category) {
       case 'Frontend Architecture':
-        return <Code className="w-4 h-4 text-[#1447E6] dark:text-[#60A5FA]" />;
-      case 'Backend & Databases':
+        return <Code2 className="w-4 h-4 text-[#1447E6] dark:text-[#60A5FA]" />;
+      case 'Backend & Data':
         return <Database className="w-4 h-4 text-[#1447E6] dark:text-[#60A5FA]" />;
-      case 'AI & Emerging APIs':
-        return <Cpu className="w-4 h-4 text-[#1447E6] dark:text-[#60A5FA]" />;
+      case 'State & API Tools':
+        return <Layers className="w-4 h-4 text-[#1447E6] dark:text-[#60A5FA]" />;
       default:
-        return <Cloud className="w-4 h-4 text-[#1447E6] dark:text-[#60A5FA]" />;
+        return <Wrench className="w-4 h-4 text-[#1447E6] dark:text-[#60A5FA]" />;
     }
   };
 
@@ -25,14 +25,14 @@ export const TechStackWorkflow: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-[#E6E1D6] dark:border-[#222533]">
           <div>
             <div className="text-xs font-mono text-[#1447E6] dark:text-[#60A5FA] uppercase tracking-wider mb-2 font-semibold">
-              [ 04 // ENGINEERING STACK &amp; SPECIFICATIONS ]
+              <span>TOOLBOX</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-display font-extrabold tracking-tight text-[#111215] dark:text-[#FAF8F5]">
-              PRECISION INSTRUMENTS.
+            <h2 className="text-3xl sm:text-5xl font-sans font-extrabold tracking-tight text-[#111215] dark:text-[#FAF8F5]">
+              Technologies &amp; Tools.
             </h2>
           </div>
           <p className="text-sm sm:text-base text-[#58554E] dark:text-[#9DA2B3] max-w-md font-normal leading-relaxed">
-            Curated tools optimized for extreme performance, type safety, and zero technical debt.
+            The core tools and frameworks I rely on to build fast, type-safe, and reliable web applications.
           </p>
         </div>
 
@@ -44,17 +44,17 @@ export const TechStackWorkflow: React.FC = () => {
               className="p-6 rounded-2xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] shadow-xs flex flex-col justify-between hover:border-[#1447E6]/40 dark:hover:border-[#3B82F6]/40 transition-colors"
             >
               <div>
-                <div className="flex items-center gap-2 mb-3">
+                <div className="flex items-center gap-2 mb-2">
                   {getCategoryIcon(cat.category)}
                   <h3 className="font-sans font-bold text-base text-[#111215] dark:text-[#FAF8F5]">
                     {cat.category}
                   </h3>
                 </div>
-                <p className="text-xs text-[#58554E] dark:text-[#9DA2B3] font-mono mb-6">
+                <p className="text-xs text-[#58554E] dark:text-[#9DA2B3] font-mono mb-5">
                   {cat.description}
                 </p>
 
-                <div className="space-y-4">
+                <div className="space-y-3.5">
                   {cat.items.map((item, itemIdx) => (
                     <div key={itemIdx} className="border-b border-[#E6E1D6]/60 dark:border-[#222533] pb-3 last:border-none">
                       <div className="flex items-center justify-between text-xs font-mono">
@@ -74,57 +74,55 @@ export const TechStackWorkflow: React.FC = () => {
           ))}
         </div>
 
-        {/* Part B: 4-Step Production Workflow */}
-        <div className="mt-28 pt-16 border-t border-[#E6E1D6] dark:border-[#222533]">
+        {/* Part B: Workflow Process */}
+        <div className="mt-24 pt-16 border-t border-[#E6E1D6] dark:border-[#222533]">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12">
             <div>
               <div className="text-xs font-mono text-[#1447E6] dark:text-[#60A5FA] uppercase tracking-wider mb-2 font-semibold">
-                [ 05 // SYSTEMATIC EXECUTION PROTOCOL ]
+                <span>HOW I WORK</span>
               </div>
-              <h2 className="text-3xl sm:text-5xl font-display font-extrabold tracking-tight text-[#111215] dark:text-[#FAF8F5]">
-                HOW A PROJECT SHAPES UP.
-              </h2>
+              <h3 className="text-2xl sm:text-4xl font-sans font-extrabold tracking-tight text-[#111215] dark:text-[#FAF8F5]">
+                From concept to production.
+              </h3>
             </div>
-            <p className="text-sm sm:text-base text-[#58554E] dark:text-[#9DA2B3] max-w-sm font-normal">
-              A transparent, battle-tested 4-phase cycle engineered to deliver zero surprises and 100% on-time deployment.
+            <p className="text-sm sm:text-base text-[#58554E] dark:text-[#9DA2B3] max-w-md font-normal leading-relaxed">
+              A transparent, phased process focused on clear milestones, frequent staging demos, and zero surprises.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {workflow.map((step, idx) => (
               <div
                 key={idx}
-                className="p-6 rounded-2xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] shadow-xs flex flex-col justify-between hover:shadow-editorial transition-all"
+                className="p-6 rounded-2xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] shadow-xs flex flex-col justify-between"
               >
                 <div>
-                  <div className="flex items-center justify-between font-mono text-xs text-[#8A867E] dark:text-[#787D8E] mb-4">
-                    <span className="text-[#1447E6] dark:text-[#60A5FA] font-bold text-sm">PHASE {step.step}</span>
-                    <span className="px-2 py-0.5 rounded bg-[#FAF8F5] dark:bg-[#1A1D2B] border border-[#E6E1D6] dark:border-[#2D3142] text-[10px] text-[#111215] dark:text-[#FAF8F5]">
+                  <div className="flex items-center justify-between font-mono text-xs mb-4">
+                    <span className="font-bold text-[#1447E6] dark:text-[#60A5FA] text-base">{step.step}</span>
+                    <span className="text-[#8A867E] dark:text-[#787D8E] px-2 py-0.5 rounded bg-[#F3EFE9] dark:bg-[#181B27]">
                       {step.duration}
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-sans font-bold text-[#111215] dark:text-[#FAF8F5] leading-snug">
+                  <h4 className="font-sans font-bold text-base sm:text-lg text-[#111215] dark:text-[#FAF8F5] mb-2">
                     {step.title}
-                  </h3>
+                  </h4>
 
-                  <p className="text-xs sm:text-sm text-[#58554E] dark:text-[#9DA2B3] mt-3 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[#58554E] dark:text-[#9DA2B3] leading-relaxed mb-6">
                     {step.summary}
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-[#E6E1D6] dark:border-[#222533]">
-                  <div className="text-[10px] font-mono uppercase text-[#8A867E] dark:text-[#787D8E] mb-2 font-semibold">
-                    Concrete Outcomes
+                <div className="border-t border-[#E6E1D6]/60 dark:border-[#222533] pt-4 space-y-2">
+                  <div className="text-[10px] font-mono uppercase text-[#8A867E] dark:text-[#787D8E] font-semibold">
+                    Key Outcomes
                   </div>
-                  <ul className="space-y-1.5">
-                    {step.outcomes.map((out, outIdx) => (
-                      <li key={outIdx} className="flex items-start gap-1.5 text-xs text-[#111215] dark:text-[#FAF8F5]">
-                        <CheckCircle className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" />
-                        <span className="text-[11px] leading-tight">{out}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  {step.outcomes.map((outcome, oIdx) => (
+                    <div key={oIdx} className="flex items-start gap-2 text-xs text-[#58554E] dark:text-[#9DA2B3]">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" />
+                      <span>{outcome}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             ))}
