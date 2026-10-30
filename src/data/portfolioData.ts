@@ -66,7 +66,7 @@ export interface WorkflowStep {
 
 export const PORTFOLIO_CONFIG = {
   developer: {
-    name: "Victor Ogunsanya",
+    name: "Victor .J. Ogunsanya",
     shortName: "VO",
     title: "Frontend Engineer & Web Developer",
     tagline: "Building clean, fast, and thoughtful web experiences.",
@@ -85,7 +85,7 @@ export const PORTFOLIO_CONFIG = {
       { value: "Full-Stack Ready", label: "Node.js, PostgreSQL, APIs" },
     ],
     bio: [
-      "I am Victor Ogunsanya, a frontend and web developer passionate about building high-quality software that is fast, accessible, and intuitive to use.",
+      "I am Victor .J. Ogunsanya, a frontend and web developer passionate about building high-quality software that is fast, accessible, and intuitive to use.",
       "I bridge the gap between design and engineering. Instead of treating aesthetics and code as two separate steps, I focus on shipping polished interfaces backed by clean, maintainable architecture.",
       "Whether developing interactive dashboards, e-commerce storefronts, or high-converting product pages, I take a disciplined approach to code architecture, responsive design, and accessible interfaces."
     ],

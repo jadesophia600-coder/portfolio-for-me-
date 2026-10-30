@@ -65,7 +65,7 @@ export const Hero: React.FC = () => {
         >
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#1447E6] dark:bg-[#60A5FA]" />
-            <span className="text-[#111215] dark:text-[#FAF8F5] font-semibold tracking-wide">VICTOR OGUNSANYA</span>
+            <span className="text-[#111215] dark:text-[#FAF8F5] font-semibold tracking-wide">VICTOR .J. OGUNSANYA</span>
             <span className="text-[#8A867E] dark:text-[#585B6B]">/</span>
             <span>PORTFOLIO &bull; 2026</span>
           </div>
@@ -263,7 +263,7 @@ export const Hero: React.FC = () => {
                   <div className="w-full h-full p-4 sm:p-5 bg-[#0D1117] text-white font-mono text-[11px] sm:text-xs overflow-auto leading-relaxed">
                     <div className="text-[#8B949E] mb-2">// Victor's Core Engineering Setup</div>
                     <div><span className="text-[#FF7B72]">const</span> <span className="text-[#79C0FF]">engineer</span> = &#123;</div>
-                    <div className="pl-4"><span className="text-[#7EE787]">name</span>: <span className="text-[#A5D6FF]">"Victor Ogunsanya"</span>,</div>
+                    <div className="pl-4"><span className="text-[#7EE787]">name</span>: <span className="text-[#A5D6FF]">"Victor .J. Ogunsanya"</span>,</div>
                     <div className="pl-4"><span className="text-[#7EE787]">role</span>: <span className="text-[#A5D6FF]">"Frontend &amp; Web Developer"</span>,</div>
                     <div className="pl-4"><span className="text-[#7EE787]">frontend</span>: [<span className="text-[#A5D6FF]">"React"</span>, <span className="text-[#A5D6FF]">"TypeScript"</span>, <span className="text-[#A5D6FF]">"Next.js"</span>],</div>
                     <div className="pl-4"><span className="text-[#7EE787]">styling</span>: [<span className="text-[#A5D6FF]">"Tailwind CSS"</span>, <span className="text-[#A5D6FF]">"Framer Motion"</span>],</div>

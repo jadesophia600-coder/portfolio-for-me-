@@ -163,7 +163,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ project, onClose
         {/* Modal Footer Actions */}
         <div className="px-4 sm:px-6 py-3.5 sm:py-4 bg-white dark:bg-[#141622] border-t border-[#E6E1D6] dark:border-[#222533] flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
           <div className="text-[11px] font-mono text-[#8A867E] dark:text-[#787D8E] hidden sm:block">
-            Victor Ogunsanya &bull; Case Study Overview
+            Victor .J. Ogunsanya &bull; Case Study Overview
           </div>
           <div className="flex items-center gap-2 sm:gap-3 w-full sm:w-auto">
             {project.githubUrl && (
