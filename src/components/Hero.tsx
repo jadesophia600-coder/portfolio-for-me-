@@ -52,8 +52,26 @@ export const Hero: React.FC = () => {
 
   return (
     <section className="relative min-h-[90vh] pt-24 pb-16 sm:pt-32 sm:pb-24 lg:pt-36 lg:pb-28 flex flex-col justify-between overflow-hidden">
+      {/* Background Ambient Video (subtle, non-distracting, dark-toned overlay) */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden select-none z-0">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          className="w-full h-full object-cover opacity-25 dark:opacity-20 filter contrast-125 brightness-75 scale-105"
+        >
+          <source src="/hero-bg.mp4" type="video/mp4" />
+        </video>
+        {/* Soft vignette and radial gradient mask so video melts into background cleanly */}
+        <div className="absolute inset-0 bg-radial-gradient from-transparent via-[#FAF8F5]/60 to-[#FAF8F5] dark:via-[#090A0E]/70 dark:to-[#090A0E]" />
+        {/* Directional bottom fade into ticker strip */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#FAF8F5]/30 via-transparent to-[#FAF8F5] dark:from-[#090A0E]/40 dark:via-transparent dark:to-[#090A0E]" />
+      </div>
+
       {/* Subtle Grid Pattern for clean structure */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" />
+      <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none z-0" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
         {/* Top Tagline & Status Bar */}
