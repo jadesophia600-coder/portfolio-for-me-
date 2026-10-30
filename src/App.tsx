@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Project } from './data/portfolioData';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
+import { TechTicker } from './components/TechTicker';
 import { FeaturedShowcase } from './components/FeaturedShowcase';
 import { ProjectGallery } from './components/ProjectGallery';
 import { Capabilities } from './components/Capabilities';
@@ -31,6 +32,9 @@ export const App: React.FC = () => {
       <main className="flex-1">
         {/* 1. Hero Introduction & Interactive Reel */}
         <Hero />
+
+        {/* 1.5 Infinite Tech Ticker Strip */}
+        <TechTicker />
 
         {/* 2. Featured Projects Showcase */}
         <FeaturedShowcase onOpenCaseStudy={handleOpenCaseStudy} />

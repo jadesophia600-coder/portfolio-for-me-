@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { PORTFOLIO_CONFIG } from '../data/portfolioData';
 import { ArrowUpRight, Menu, X, Sun, Moon, Mail, Copy, Check } from 'lucide-react';
+import { motion, useScroll, useSpring } from 'framer-motion';
 
 export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -8,6 +9,13 @@ export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const lastScrollY = useRef(0);
+
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
   
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
     if (typeof window !== 'undefined') {
@@ -72,6 +80,12 @@ export const Navbar: React.FC = () => {
 
   return (
     <>
+      {/* Precision Scroll Progress Indicator */}
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-[2.5px] bg-[#1447E6] dark:bg-[#60A5FA] origin-left z-[100] pointer-events-none"
+        style={{ scaleX }}
+      />
+
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
           isVisible || mobileMenuOpen

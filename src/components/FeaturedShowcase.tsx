@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { PORTFOLIO_CONFIG, Project } from '../data/portfolioData';
 import { ArrowUpRight, Monitor, Smartphone, ExternalLink, Github } from 'lucide-react';
 import { LiveMockupPreview } from './LiveMockupPreview';
+import { motion } from 'framer-motion';
 
 interface FeaturedShowcaseProps {
   onOpenCaseStudy: (project: Project) => void;
@@ -23,7 +24,13 @@ export const FeaturedShowcase: React.FC<FeaturedShowcaseProps> = ({ onOpenCaseSt
     <section id="works" className="py-24 sm:py-32 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-[#E6E1D6] dark:border-[#222533]">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-[#E6E1D6] dark:border-[#222533]"
+        >
           <div>
             <div className="flex items-center gap-2 text-xs font-mono text-[#1447E6] dark:text-[#60A5FA] uppercase tracking-wider mb-2 font-semibold">
               <span>SELECTED WORK</span>
@@ -35,7 +42,7 @@ export const FeaturedShowcase: React.FC<FeaturedShowcaseProps> = ({ onOpenCaseSt
           <p className="text-base text-[#58554E] dark:text-[#9DA2B3] max-w-md font-normal leading-relaxed">
             A selection of web applications, e-commerce storefronts, and interactive interfaces built with React, Next.js, and TypeScript.
           </p>
-        </div>
+        </motion.div>
 
         {/* Featured Projects Stack */}
         <div className="mt-16 space-y-24 sm:space-y-32">
@@ -43,8 +50,12 @@ export const FeaturedShowcase: React.FC<FeaturedShowcaseProps> = ({ onOpenCaseSt
             const currentView = deviceViews[project.id] || 'desktop';
 
             return (
-              <div
+              <motion.div
                 key={project.id}
+                initial={{ opacity: 0, y: 48 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                 className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center group"
               >
                 {/* Left Column: Project Metadata & Narrative (5 cols) */}
@@ -102,16 +113,20 @@ export const FeaturedShowcase: React.FC<FeaturedShowcaseProps> = ({ onOpenCaseSt
 
                   {/* Action Links */}
                   <div className="mt-8 flex items-center gap-4">
-                    <button
+                    <motion.button
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
                       onClick={() => onOpenCaseStudy(project)}
-                      className="px-5 py-2.5 rounded-xl bg-[#111215] dark:bg-[#FAF8F5] text-white dark:text-[#111215] text-xs font-mono font-semibold hover:bg-[#1447E6] dark:hover:bg-[#3B82F6] dark:hover:text-white transition-all flex items-center gap-2 shadow-xs"
+                      className="px-5 py-2.5 rounded-xl bg-[#111215] dark:bg-[#FAF8F5] text-white dark:text-[#111215] text-xs font-mono font-semibold hover:bg-[#1447E6] dark:hover:bg-[#3B82F6] dark:hover:text-white transition-colors flex items-center gap-2 shadow-xs"
                     >
                       <span>Read Case Study</span>
                       <ArrowUpRight className="w-3.5 h-3.5" />
-                    </button>
+                    </motion.button>
 
                     {project.githubUrl && (
-                      <a
+                      <motion.a
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
                         href={project.githubUrl}
                         target="_blank"
                         rel="noreferrer"
@@ -119,7 +134,7 @@ export const FeaturedShowcase: React.FC<FeaturedShowcaseProps> = ({ onOpenCaseSt
                       >
                         <Github className="w-3.5 h-3.5" />
                         <span>Source</span>
-                      </a>
+                      </motion.a>
                     )}
                   </div>
                 </div>
@@ -161,8 +176,11 @@ export const FeaturedShowcase: React.FC<FeaturedShowcaseProps> = ({ onOpenCaseSt
                     </div>
 
                     {/* The Browser Frame */}
-                    <div
-                      className={`relative mx-auto rounded-2xl bg-white dark:bg-[#12141D] border border-[#111215]/15 dark:border-white/10 shadow-browser overflow-hidden transition-all duration-300 ${
+                    <motion.div
+                      layout
+                      transition={{ type: 'spring', stiffness: 280, damping: 28 }}
+                      whileHover={{ y: -6, transition: { duration: 0.3 } }}
+                      className={`relative mx-auto rounded-2xl bg-white dark:bg-[#12141D] border border-[#111215]/15 dark:border-white/10 shadow-browser overflow-hidden ${
                         currentView === 'mobile' ? 'max-w-[340px]' : 'w-full'
                       }`}
                     >
@@ -204,10 +222,10 @@ export const FeaturedShowcase: React.FC<FeaturedShowcaseProps> = ({ onOpenCaseSt
                           <ArrowUpRight className="w-3 h-3" />
                         </button>
                       </div>
-                    </div>
+                    </motion.div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>

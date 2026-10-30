@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { PORTFOLIO_CONFIG } from '../data/portfolioData';
 import { ArrowUpRight, Check, Copy, Mail, Send, CheckCircle2 } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export const ContactSection: React.FC = () => {
   const { developer } = PORTFOLIO_CONFIG;
@@ -73,7 +74,13 @@ export const ContactSection: React.FC = () => {
     <section id="contact" className="py-24 sm:py-32 bg-[#111215] text-[#FAF8F5] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-white/10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-white/10"
+        >
           <div>
             <div className="text-xs font-mono text-[#60A5FA] uppercase tracking-wider mb-2 font-semibold">
               <span>GET IN TOUCH</span>
@@ -85,18 +92,27 @@ export const ContactSection: React.FC = () => {
           <p className="text-sm sm:text-base text-white/70 max-w-md font-normal leading-relaxed">
             Have a project in mind, looking to hire a frontend engineer, or just want to say hi? Reach out directly or fill in the form below.
           </p>
-        </div>
+        </motion.div>
 
         <div className="mt-14 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Left Column: Direct Contact Info (5 cols) */}
-          <div className="lg:col-span-5 space-y-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 space-y-8"
+          >
             <div className="space-y-4">
               <div className="text-xs font-mono uppercase tracking-wider text-white/50">
                 Direct Contact
               </div>
 
               {/* Email Card with 1-click copy */}
-              <div className="p-6 rounded-2xl bg-white/5 border border-white/10 space-y-4">
+              <motion.div
+                whileHover={{ y: -2 }}
+                className="p-6 rounded-2xl bg-white/5 border border-white/10 space-y-4"
+              >
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-mono text-white/60">Email Address</span>
                   <button
@@ -123,7 +139,7 @@ export const ContactSection: React.FC = () => {
                 >
                   {developer.email}
                 </a>
-              </div>
+              </motion.div>
             </div>
 
             {/* Quick Details */}
@@ -149,8 +165,10 @@ export const ContactSection: React.FC = () => {
               </div>
               <div className="flex flex-wrap gap-2">
                 {developer.socials.map((s, idx) => (
-                  <a
+                  <motion.a
                     key={idx}
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.97 }}
                     href={s.url}
                     target="_blank"
                     rel="noreferrer"
@@ -158,14 +176,20 @@ export const ContactSection: React.FC = () => {
                   >
                     <span>{s.name}</span>
                     <ArrowUpRight className="w-3 h-3 text-white/40" />
-                  </a>
+                  </motion.a>
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column: Contact Message Form (7 cols) */}
-          <div className="lg:col-span-7">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.65, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-7"
+          >
             <div className="p-8 sm:p-10 rounded-2xl bg-white/[0.03] border border-white/10 shadow-2xl">
               {isSubmitted ? (
                 <div className="py-12 text-center space-y-4">
@@ -257,10 +281,12 @@ export const ContactSection: React.FC = () => {
                   </div>
 
                   <div className="flex flex-col sm:flex-row items-center gap-3 pt-2">
-                    <button
+                    <motion.button
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-white text-[#111215] hover:bg-neutral-200 text-xs font-mono font-semibold transition-all flex items-center justify-center gap-2 shadow-xs active:scale-[0.98] disabled:opacity-50"
+                      className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-white text-[#111215] hover:bg-neutral-200 text-xs font-mono font-semibold transition-all flex items-center justify-center gap-2 shadow-xs disabled:opacity-50"
                     >
                       {isSubmitting ? (
                         <span>Sending message...</span>
@@ -270,21 +296,23 @@ export const ContactSection: React.FC = () => {
                           <Send className="w-3.5 h-3.5" />
                         </>
                       )}
-                    </button>
+                    </motion.button>
 
-                    <button
+                    <motion.button
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
                       type="button"
                       onClick={handleMailtoDirect}
                       className="w-full sm:w-auto px-5 py-3.5 rounded-xl bg-transparent hover:bg-white/10 border border-white/20 text-xs font-mono text-white/80 hover:text-white transition-colors flex items-center justify-center gap-2"
                     >
                       <span>Open in Mail Client</span>
                       <ArrowUpRight className="w-3.5 h-3.5 text-white/60" />
-                    </button>
+                    </motion.button>
                   </div>
                 </form>
               )}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { PORTFOLIO_CONFIG } from '../data/portfolioData';
 import { Zap, Heart, Sparkles, Code2, Globe2, MessageSquare, ArrowUpRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export const About: React.FC = () => {
   const { developer, faqs } = PORTFOLIO_CONFIG;
@@ -10,7 +11,13 @@ export const About: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left Column: Profile Card & Core Principles (5 cols) */}
-          <div className="lg:col-span-5 space-y-8">
+          <motion.div
+            initial={{ opacity: 0, y: 32 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 space-y-8"
+          >
             <div>
               <div className="text-xs font-mono text-[#1447E6] dark:text-[#60A5FA] uppercase tracking-wider mb-2 font-semibold">
                 <span>ABOUT ME</span>
@@ -21,7 +28,10 @@ export const About: React.FC = () => {
             </div>
 
             {/* Profile Info Card */}
-            <div className="p-8 rounded-2xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] shadow-xs flex flex-col justify-between space-y-6">
+            <motion.div
+              whileHover={{ y: -4, transition: { duration: 0.25 } }}
+              className="p-8 rounded-2xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] shadow-xs flex flex-col justify-between space-y-6"
+            >
               <div className="flex items-center justify-between">
                 <div className="w-12 h-12 rounded-xl bg-[#111215] dark:bg-[#1E2230] text-[#FAF8F5] flex items-center justify-center font-mono text-xl font-bold border border-transparent dark:border-white/10 shadow-xs">
                   {developer.shortName}
@@ -55,38 +65,53 @@ export const About: React.FC = () => {
                   <span className="font-semibold text-emerald-600 dark:text-emerald-400">Open to Roles &amp; Contracts</span>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Guiding Principles */}
             <div className="space-y-4">
-              <div className="p-4 rounded-xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] flex items-start gap-3 shadow-xs">
+              <motion.div
+                whileHover={{ x: 4, transition: { duration: 0.2 } }}
+                className="p-4 rounded-xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] flex items-start gap-3 shadow-xs"
+              >
                 <Zap className="w-5 h-5 text-[#1447E6] dark:text-[#60A5FA] shrink-0 mt-0.5" />
                 <div>
                   <h4 className="text-xs font-mono font-bold uppercase text-[#111215] dark:text-[#FAF8F5]">Speed as a Priority</h4>
                   <p className="text-xs text-[#58554E] dark:text-[#9DA2B3] mt-0.5">Fast-loading pages and instant interactions make software feel natural and keep users engaged.</p>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="p-4 rounded-xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] flex items-start gap-3 shadow-xs">
+              <motion.div
+                whileHover={{ x: 4, transition: { duration: 0.2 } }}
+                className="p-4 rounded-xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] flex items-start gap-3 shadow-xs"
+              >
                 <Code2 className="w-5 h-5 text-[#1447E6] dark:text-[#60A5FA] shrink-0 mt-0.5" />
                 <div>
                   <h4 className="text-xs font-mono font-bold uppercase text-[#111215] dark:text-[#FAF8F5]">Design &amp; Code In Sync</h4>
                   <p className="text-xs text-[#58554E] dark:text-[#9DA2B3] mt-0.5">I care about typography, spacing, and micro-interactions just as much as type safety and clean abstractions.</p>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="p-4 rounded-xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] flex items-start gap-3 shadow-xs">
+              <motion.div
+                whileHover={{ x: 4, transition: { duration: 0.2 } }}
+                className="p-4 rounded-xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] flex items-start gap-3 shadow-xs"
+              >
                 <MessageSquare className="w-5 h-5 text-[#1447E6] dark:text-[#60A5FA] shrink-0 mt-0.5" />
                 <div>
                   <h4 className="text-xs font-mono font-bold uppercase text-[#111215] dark:text-[#FAF8F5]">Clear, Direct Communication</h4>
                   <p className="text-xs text-[#58554E] dark:text-[#9DA2B3] mt-0.5">Frequent updates, live staging previews, and transparent timelines keep teams aligned at every step.</p>
                 </div>
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column: Personal Story & FAQs (7 cols) */}
-          <div className="lg:col-span-7 space-y-12">
+          <motion.div
+            initial={{ opacity: 0, y: 32 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.65, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-7 space-y-12"
+          >
             {/* Authentic Narrative Bio */}
             <div className="space-y-6 text-[#58554E] dark:text-[#9DA2B3] text-base sm:text-lg leading-relaxed">
               <p>
@@ -108,8 +133,9 @@ export const About: React.FC = () => {
 
               <div className="space-y-4">
                 {faqs.map((faq, idx) => (
-                  <div
+                  <motion.div
                     key={idx}
+                    whileHover={{ y: -2, transition: { duration: 0.2 } }}
                     className="p-5 rounded-xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] shadow-xs"
                   >
                     <h4 className="font-sans font-bold text-sm sm:text-base text-[#111215] dark:text-[#FAF8F5] mb-2">
@@ -118,11 +144,11 @@ export const About: React.FC = () => {
                     <p className="text-xs sm:text-sm text-[#58554E] dark:text-[#9DA2B3] leading-relaxed">
                       {faq.answer}
                     </p>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

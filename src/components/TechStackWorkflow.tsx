@@ -1,6 +1,7 @@
 import React from 'react';
 import { PORTFOLIO_CONFIG } from '../data/portfolioData';
 import { Code2, Database, Layers, Wrench, CheckCircle2 } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export const TechStackWorkflow: React.FC = () => {
   const { techStack, workflow } = PORTFOLIO_CONFIG;
@@ -22,7 +23,13 @@ export const TechStackWorkflow: React.FC = () => {
     <section id="workflow" className="py-24 sm:py-32 bg-[#FAF8F5] dark:bg-[#090A0E] relative border-t border-[#E6E1D6] dark:border-[#222533]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Part A: Technologies Matrix */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-[#E6E1D6] dark:border-[#222533]">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-[#E6E1D6] dark:border-[#222533]"
+        >
           <div>
             <div className="text-xs font-mono text-[#1447E6] dark:text-[#60A5FA] uppercase tracking-wider mb-2 font-semibold">
               <span>TOOLBOX</span>
@@ -34,13 +41,18 @@ export const TechStackWorkflow: React.FC = () => {
           <p className="text-sm sm:text-base text-[#58554E] dark:text-[#9DA2B3] max-w-md font-normal leading-relaxed">
             The core tools and frameworks I rely on to build fast, type-safe, and reliable web applications.
           </p>
-        </div>
+        </motion.div>
 
         {/* 4-Column Tech Stack Categories */}
         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {techStack.map((cat, idx) => (
-            <div
+            <motion.div
               key={idx}
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.5, delay: idx * 0.08, ease: [0.16, 1, 0.3, 1] }}
+              whileHover={{ y: -6, transition: { duration: 0.25 } }}
               className="p-6 rounded-2xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] shadow-xs flex flex-col justify-between hover:border-[#1447E6]/40 dark:hover:border-[#3B82F6]/40 transition-colors"
             >
               <div>
@@ -70,13 +82,19 @@ export const TechStackWorkflow: React.FC = () => {
                   ))}
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* Part B: Workflow Process */}
         <div className="mt-24 pt-16 border-t border-[#E6E1D6] dark:border-[#222533]">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12"
+          >
             <div>
               <div className="text-xs font-mono text-[#1447E6] dark:text-[#60A5FA] uppercase tracking-wider mb-2 font-semibold">
                 <span>HOW I WORK</span>
@@ -88,13 +106,18 @@ export const TechStackWorkflow: React.FC = () => {
             <p className="text-sm sm:text-base text-[#58554E] dark:text-[#9DA2B3] max-w-md font-normal leading-relaxed">
               A transparent, phased process focused on clear milestones, frequent staging demos, and zero surprises.
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {workflow.map((step, idx) => (
-              <div
+              <motion.div
                 key={idx}
-                className="p-6 rounded-2xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] shadow-xs flex flex-col justify-between"
+                initial={{ opacity: 0, y: 32 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.5, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                whileHover={{ y: -6, transition: { duration: 0.25 } }}
+                className="p-6 rounded-2xl bg-white dark:bg-[#12141D] border border-[#E6E1D6] dark:border-[#222533] shadow-xs flex flex-col justify-between hover:border-[#1447E6]/40 dark:hover:border-[#3B82F6]/40 transition-colors"
               >
                 <div>
                   <div className="flex items-center justify-between font-mono text-xs mb-4">
@@ -124,7 +147,7 @@ export const TechStackWorkflow: React.FC = () => {
                     </div>
                   ))}
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

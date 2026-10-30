@@ -1,6 +1,27 @@
 import React, { useState, useRef } from 'react';
 import { PORTFOLIO_CONFIG } from '../data/portfolioData';
 import { ArrowDown, ArrowUpRight, Code2, Play, Pause, Volume2, VolumeX, Laptop } from 'lucide-react';
+import { motion } from 'framer-motion';
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
+  },
+};
 
 export const Hero: React.FC = () => {
   const { developer } = PORTFOLIO_CONFIG;
@@ -36,7 +57,12 @@ export const Hero: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
         {/* Top Tagline & Status Bar */}
-        <div className="flex flex-wrap items-center justify-between gap-4 pb-8 border-b border-[#E6E1D6] dark:border-[#222533] text-xs font-mono text-[#58554E] dark:text-[#9DA2B3]">
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-wrap items-center justify-between gap-4 pb-8 border-b border-[#E6E1D6] dark:border-[#222533] text-xs font-mono text-[#58554E] dark:text-[#9DA2B3]"
+        >
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#1447E6] dark:bg-[#60A5FA]" />
             <span className="text-[#111215] dark:text-[#FAF8F5] font-semibold tracking-wide">VICTOR OGUNSANYA</span>
@@ -51,49 +77,73 @@ export const Hero: React.FC = () => {
               AVAILABLE FOR ROLES
             </span>
           </div>
-        </div>
+        </motion.div>
 
         {/* Hero Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 pt-10 lg:pt-14 items-center">
           {/* Left Column: Personal Introduction & Narrative (7 cols) */}
-          <div className="lg:col-span-7 flex flex-col justify-center">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="lg:col-span-7 flex flex-col justify-center"
+          >
             {/* Role Monogram Pill */}
-            <div className="inline-flex items-center gap-2.5 mb-6 text-xs font-mono text-[#1447E6] dark:text-[#60A5FA] font-semibold tracking-wider uppercase">
+            <motion.div
+              variants={itemVariants}
+              className="inline-flex items-center gap-2.5 mb-6 text-xs font-mono text-[#1447E6] dark:text-[#60A5FA] font-semibold tracking-wider uppercase"
+            >
               <span className="w-1.5 h-1.5 rounded-full bg-[#1447E6] dark:bg-[#60A5FA]" />
               <span>{developer.title}</span>
-            </div>
+            </motion.div>
 
             {/* Clear, Human Headline */}
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-sans font-extrabold tracking-tight text-[#111215] dark:text-[#FAF8F5] leading-[1.06] mb-8">
+            <motion.h1
+              variants={itemVariants}
+              className="text-4xl sm:text-6xl lg:text-7xl font-sans font-extrabold tracking-tight text-[#111215] dark:text-[#FAF8F5] leading-[1.06] mb-8"
+            >
               Building clean, fast, and thoughtful <span className="text-[#1447E6] dark:text-[#60A5FA]">web experiences.</span>
-            </h1>
+            </motion.h1>
 
             {/* Grounded Bio Summary */}
-            <p className="text-lg sm:text-xl text-[#58554E] dark:text-[#9DA2B3] max-w-2xl leading-relaxed mb-10 font-normal">
+            <motion.p
+              variants={itemVariants}
+              className="text-lg sm:text-xl text-[#58554E] dark:text-[#9DA2B3] max-w-2xl leading-relaxed mb-10 font-normal"
+            >
               Hi, I'm Victor. I build responsive web applications and interactive websites with a focus on React, TypeScript, and modern frontend architecture. I care about snappy performance, clean design details, and reliable code.
-            </p>
+            </motion.p>
 
             {/* Action CTA Group */}
-            <div className="flex flex-wrap items-center gap-4 sm:gap-5">
-              <a
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-wrap items-center gap-4 sm:gap-5"
+            >
+              <motion.a
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.98 }}
                 href="#works"
-                className="px-6 py-3.5 rounded-xl bg-[#111215] dark:bg-[#FAF8F5] text-[#FAF8F5] dark:text-[#111215] font-mono text-xs sm:text-sm font-semibold hover:bg-[#1447E6] dark:hover:bg-[#3B82F6] dark:hover:text-white transition-all shadow-sm active:scale-[0.98] flex items-center gap-2.5 group"
+                className="px-6 py-3.5 rounded-xl bg-[#111215] dark:bg-[#FAF8F5] text-[#FAF8F5] dark:text-[#111215] font-mono text-xs sm:text-sm font-semibold hover:bg-[#1447E6] dark:hover:bg-[#3B82F6] dark:hover:text-white transition-colors shadow-sm flex items-center gap-2.5 group"
               >
                 <span>View Selected Projects</span>
                 <ArrowDown className="w-4 h-4 group-hover:translate-y-1 transition-transform" />
-              </a>
+              </motion.a>
 
-              <a
+              <motion.a
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.98 }}
                 href="#contact"
-                className="px-6 py-3.5 rounded-xl border border-[#D5CFCE] dark:border-[#2D3142] bg-white dark:bg-[#12141D] text-[#111215] dark:text-white font-mono text-xs sm:text-sm font-semibold hover:border-[#111215] dark:hover:border-white transition-all active:scale-[0.98] flex items-center gap-2 group shadow-xs"
+                className="px-6 py-3.5 rounded-xl border border-[#D5CFCE] dark:border-[#2D3142] bg-white dark:bg-[#12141D] text-[#111215] dark:text-white font-mono text-xs sm:text-sm font-semibold hover:border-[#111215] dark:hover:border-white transition-colors flex items-center gap-2 group shadow-xs"
               >
                 <span>Get in Touch</span>
                 <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </a>
-            </div>
+              </motion.a>
+            </motion.div>
 
             {/* Key Focus Highlights */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-10 mt-10 border-t border-[#E6E1D6] dark:border-[#222533]">
+            <motion.div
+              variants={itemVariants}
+              className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-10 mt-10 border-t border-[#E6E1D6] dark:border-[#222533]"
+            >
               {developer.stats.map((stat, idx) => (
                 <div key={idx} className="space-y-1">
                   <div className="text-base sm:text-lg font-sans font-bold text-[#111215] dark:text-[#FAF8F5] leading-snug">
@@ -104,12 +154,18 @@ export const Hero: React.FC = () => {
                   </div>
                 </div>
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Right Column: Interactive Video & Code Showcase (5 cols) */}
           <div className="lg:col-span-5 flex flex-col items-center">
-            <div className="w-full rounded-2xl overflow-hidden border border-[#E6E1D6] dark:border-[#222533] bg-white dark:bg-[#12141D] shadow-lifted">
+            <motion.div
+              initial={{ opacity: 0, y: 32, scale: 0.96 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+              whileHover={{ y: -4, transition: { duration: 0.3 } }}
+              className="w-full rounded-2xl overflow-hidden border border-[#E6E1D6] dark:border-[#222533] bg-white dark:bg-[#12141D] shadow-lifted"
+            >
               {/* Window Title Bar */}
               <div className="px-4 py-3 bg-[#F3EFE9] dark:bg-[#161824] border-b border-[#E6E1D6] dark:border-[#222533] flex items-center justify-between">
                 <div className="flex items-center gap-2">
@@ -210,7 +266,7 @@ export const Hero: React.FC = () => {
                 <span>Featured Interactive Reel</span>
                 <span className="text-[#1447E6] dark:text-[#60A5FA]">Three.js &bull; React &bull; Tailwind</span>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
