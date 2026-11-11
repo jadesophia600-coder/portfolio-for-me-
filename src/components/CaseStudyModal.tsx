@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Project } from '../data/portfolioData';
-import { X, ExternalLink, Github, CheckCircle2 } from 'lucide-react';
+import { X, ExternalLink, CheckCircle2 } from 'lucide-react';
 import { LiveMockupPreview } from './LiveMockupPreview';
 
 interface CaseStudyModalProps {
@@ -166,17 +166,6 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ project, onClose
             Victor .J. Ogunsanya &bull; Case Study Overview
           </div>
           <div className="flex items-center gap-2 sm:gap-3 w-full sm:w-auto">
-            {project.githubUrl && (
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="flex-1 sm:flex-none justify-center px-4 py-2 rounded-xl border border-[#E6E1D6] dark:border-[#2D3142] text-xs font-mono text-[#111215] dark:text-[#FAF8F5] hover:bg-[#F3EFE9] dark:hover:bg-[#1E2234] transition-colors flex items-center gap-1.5"
-              >
-                <Github className="w-3.5 h-3.5" />
-                <span>Source</span>
-              </a>
-            )}
             {project.liveUrl && (
               <a
                 href={project.liveUrl}
@@ -188,6 +177,12 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ project, onClose
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
             )}
+            <button
+              onClick={onClose}
+              className="flex-1 sm:flex-none justify-center px-4 py-2 rounded-xl border border-[#E6E1D6] dark:border-[#2D3142] text-xs font-mono text-[#111215] dark:text-[#FAF8F5] hover:bg-[#F3EFE9] dark:hover:bg-[#1E2234] transition-colors"
+            >
+              Close
+            </button>
           </div>
         </div>
       </div>

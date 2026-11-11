@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { PORTFOLIO_CONFIG, Project } from '../data/portfolioData';
-import { ArrowUpRight, Monitor, Smartphone, ExternalLink, Github } from 'lucide-react';
+import { ArrowUpRight, Monitor, Smartphone, ExternalLink } from 'lucide-react';
 import { LiveMockupPreview } from './LiveMockupPreview';
 import { motion } from 'framer-motion';
 
@@ -122,20 +122,6 @@ export const FeaturedShowcase: React.FC<FeaturedShowcaseProps> = ({ onOpenCaseSt
                       <span>Read Case Study</span>
                       <ArrowUpRight className="w-3.5 h-3.5" />
                     </motion.button>
-
-                    {project.githubUrl && (
-                      <motion.a
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="w-full sm:w-auto justify-center px-4 py-3 rounded-xl border border-[#D5CFCE] dark:border-[#2D3142] bg-white dark:bg-[#12141D] text-[#111215] dark:text-white text-xs font-mono font-semibold hover:border-[#111215] dark:hover:border-white transition-colors flex items-center gap-2 shadow-xs"
-                      >
-                        <Github className="w-3.5 h-3.5" />
-                        <span>Source</span>
-                      </motion.a>
-                    )}
                   </div>
                 </div>
 

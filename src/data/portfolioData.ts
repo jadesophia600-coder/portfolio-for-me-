@@ -75,8 +75,8 @@ export const PORTFOLIO_CONFIG = {
       status: "Available for new projects",
       period: "Full-Time & Contract",
       isAccepting: true,
-      location: "Lagos, Nigeria • Remote Globally",
-      timezone: "WAT (UTC+1) / Flexible International",
+      location: "Remote Globally",
+      timezone: "Flexible International (UTC / Global)",
     },
     stats: [
       { value: "React & Next.js", label: "Primary Frontend Stack" },
@@ -91,7 +91,6 @@ export const PORTFOLIO_CONFIG = {
     ],
     email: "victorjackson6545@gmail.com",
     socials: [
-      { name: "GitHub", url: "https://github.com/jadesophia600-coder", handle: "github.com/jadesophia600-coder" },
       { name: "LinkedIn", url: "https://linkedin.com/in/victor-ogunsanya", handle: "linkedin.com/in/victor-ogunsanya" },
       { name: "Twitter / X", url: "https://x.com", handle: "@victor_webdev" },
       { name: "Email", url: "mailto:victorjackson6545@gmail.com", handle: "victorjackson6545@gmail.com" },

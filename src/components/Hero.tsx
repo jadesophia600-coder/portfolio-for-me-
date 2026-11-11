@@ -286,7 +286,7 @@ export const Hero: React.FC = () => {
                     <div className="pl-4"><span className="text-[#7EE787]">frontend</span>: [<span className="text-[#A5D6FF]">"React"</span>, <span className="text-[#A5D6FF]">"TypeScript"</span>, <span className="text-[#A5D6FF]">"Next.js"</span>],</div>
                     <div className="pl-4"><span className="text-[#7EE787]">styling</span>: [<span className="text-[#A5D6FF]">"Tailwind CSS"</span>, <span className="text-[#A5D6FF]">"Framer Motion"</span>],</div>
                     <div className="pl-4"><span className="text-[#7EE787]">backend</span>: [<span className="text-[#A5D6FF]">"Node.js"</span>, <span className="text-[#A5D6FF]">"PostgreSQL"</span>, <span className="text-[#A5D6FF]">"Supabase"</span>],</div>
-                    <div className="pl-4"><span className="text-[#7EE787]">location</span>: <span className="text-[#A5D6FF]">"Lagos, Nigeria"</span>,</div>
+                    <div className="pl-4"><span className="text-[#7EE787]">location</span>: <span className="text-[#A5D6FF]">"Remote Worldwide"</span>,</div>
                     <div className="pl-4"><span className="text-[#7EE787]">openForWork</span>: <span className="text-[#79C0FF]">true</span></div>
                     <div>&#125;;</div>
                     <div className="mt-4 text-[#8B949E]">// Built with care and clean architecture</div>
